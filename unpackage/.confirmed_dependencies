@@ -1,0 +1,39 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "pages/tab-webview-subpage-about.html"
+    ],
+    "refer": [
+      "pages/tab-webview-subpage-setting.html",
+      "pages/tab-webview-subpage-contact.html",
+      "pages/tab-webview-subpage-chat.html"
+    ]
+  },
+  "pages/tab-webview-subpage-about.html": {
+    "resources": [
+      "css/home.css",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/60x60.gif",
+      "images/shuijiao.jpg",
+      "css/mui.min.css",
+      "pages/room.html",
+      "js/mui.min.js"
+    ],
+    "refer": []
+  },
+  "pages/room.html": {
+    "resources": [
+      "css/room.css",
+      "images/60x60.gif",
+      "js/mui.js",
+      "css/mui.css",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  }
+}

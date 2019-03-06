@@ -99,17 +99,17 @@
 			</div>
 			<div class="hotGame">
 				<div class="title">
-					<img src="images/cbd.jpg" />
+					<img src="../images/cbd.jpg" />
 					<span>热门游戏</span>
 				</div>
 				<div class="gameList">
-					<a class="gameItem" href="pages/room.html">
+					<div class="gameItem">
 						<img src="../images/60x60.gif">
 						<div class="introduce">
-							<span>幸运28</span>
+							<span>加拿大28</span>
 							<span>有<span class='personNum'>1234</span>人在玩</span>
 						</div>
-					</a>
+					</div>
 					<div class="gameItem">
 						<img src="../images/60x60.gif">
 						<div class="introduce">
@@ -155,6 +155,11 @@
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
+		document.querySelector('.gameItem').addEventListener('tap', function(){
+			mui.openWindow({
+				url:'room.html'
+			})
+		})
 		var slider = mui("#slider").slider({
 			interval: 1000
 		});

@@ -1,0 +1,22 @@
+.roomItem {
+	display: flex;
+	padding: 15px;
+	color: #000;
+	border-bottom: 1px solid #C0C0C0;
+}
+.roomItem > img {
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	margin-right: 10px;
+}
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.roomName {
+	font-size: 20px;
+	color: #000000;
+	font-weight: 700;
+}

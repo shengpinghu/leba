@@ -8,6 +8,7 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/home.css">
 		<style>
 			html,body {
 				background-color: #efeff4;
@@ -21,18 +22,141 @@
 	</head>
 	<body>
 		<div class="mui-content">
-			<div class="title">
-				<p>这是webview模式选项卡的第1个子页面</p>
-				<p>何谓webview模式？其实就是每个选项卡内容都是一个独立的webview，彼此之间互相独立、互不影响；
-					对于较为复杂的业务系统，推荐使用该模式。</p>
-				<p>基于webview模式的选项卡，支持原生加速的下拉刷新，点击第二个选项卡（“消息”），切换选项卡，体验下拉刷新；</p>
+			<!-- <header class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">图片轮播</h1>
+			</header> -->
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../images/yuantiao.jpg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/shuijiao.jpg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/muwu.jpg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/cbd.jpg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../images/yuantiao.jpg">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="images/shuijiao.jpg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+			</div>
+			<div class="contain">
+				<div class="item">
+					<img src="../images/60x60.gif">
+					<div id="">
+						充值上分
+					</div>
+				</div>
+				<div class="item">
+					<img src="../images/60x60.gif">
+					<div id="">
+						邀请好友
+					</div>
+				</div>
+				<div class="item">
+					<img src="../images/60x60.gif">
+					<div id="">
+						任务大厅
+					</div>
+				</div>
+				<div class="item">
+					<img src="../images/60x60.gif">
+					<div id="">
+						公告中心
+					</div>
+				</div>
+			</div>
+			<div class="hotGame">
+				<div class="title">
+					<img src="images/cbd.jpg" />
+					<span>热门游戏</span>
+				</div>
+				<div class="gameList">
+					<a class="gameItem" href="pages/room.html">
+						<img src="../images/60x60.gif">
+						<div class="introduce">
+							<span>幸运28</span>
+							<span>有<span class='personNum'>1234</span>人在玩</span>
+						</div>
+					</a>
+					<div class="gameItem">
+						<img src="../images/60x60.gif">
+						<div class="introduce">
+							<span>幸运28</span>
+							<span>有<span class='personNum'>1234</span>人在玩</span>
+						</div>
+					</div>
+					<div class="gameItem">
+						<img src="../images/60x60.gif">
+						<div class="introduce">
+							<span>幸运28</span>
+							<span>有<span class='personNum'>1234</span>人在玩</span>
+						</div>
+					</div>
+					<div class="gameItem">
+						<img src="../images/60x60.gif">
+						<div class="introduce">
+							<span>幸运28</span>
+							<span>有<span class='personNum'>1234</span>人在玩</span>
+						</div>
+					</div>
+					<div class="gameItem">
+						<img src="../images/60x60.gif">
+						<div class="introduce">
+							<span>幸运28</span>
+							<span>有<span class='personNum'>1234</span>人在玩</span>
+						</div>
+					</div>
+					<div class="gameItem">
+						<img src="../images/60x60.gif">
+						<div class="introduce">
+							<span>幸运28</span>
+							<span>有<span class='personNum'>1234</span>人在玩</span>
+						</div>
+					</div>
+				</div>
+			
 			</div>
 		</div>
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
 		mui.init({
-			swipeBack:true //启用右滑关闭功能
+			swipeBack: true //启用右滑关闭功能
+		});
+		var slider = mui("#slider").slider({
+			interval: 1000
 		});
 	</script>
 </html>

@@ -20,7 +20,7 @@
 					<div class="roomName">
 						NG加拿大2.8
 					</div>
-					<div id="">
+					<div>
 						一下之间: 大,单：5
 					</div>
 				</div>
@@ -64,6 +64,11 @@
 		<script src="../js/mui.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			document.querySelector('.roomItem').addEventListener('tap', function(){
+				mui.openWindow({
+					url:'battle.html'
+				})
+			})
 		</script>
 	</body>
 

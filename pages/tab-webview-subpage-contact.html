@@ -9,39 +9,97 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/home.css">
 		<style>
-			html,body {
-				background-color: #efeff4;
-			}
-			.title{
-				margin: 20px 15px 10px;
-				color: #6d6d72;
-				font-size: 15px;
-			}
-			 .oa-contact-cell.mui-table .mui-table-cell {
-				padding: 11px 0;
-				vertical-align: middle;
+			html,
+			body {
+				background-color: #FFFFFF;
 			}
 			
-			.oa-contact-cell {
+			.mui-content {
+				background-color: #FFFFFF;
+			}
+			.title {
 				position: relative;
-				margin: -11px 0;
+				color: #6d6d72;
+				font-size: 15px;
+				height: 150px;
+				background: -webkit-linear-gradient(left, #508efd, #3db8fc);/* Safari 5.1 - 6.0 */
+				background: -o-linear-gradient(right, #508efd, #3db8fc);/* Opera 11.1 - 12.0 */
+				background: -moz-linear-gradient(right, #508efd, #3db8fc);/* Firefox 3.6 - 15 */
+				background: linear-gradient(to right, #508efd, #3db8fc);/* 标准的语法（必须放在最后） */		
 			}
-	
-			.oa-contact-avatar {
-				width: 75px;
+			.service_header {
+				position: absolute;
+				margin: 50px 20px 0px;
+				width: calc(100% - 40px);
+				height: 220px;
+				background-color: #FFFFFF;
+				border-radius: 10px;
+				-moz-box-shadow: 0px 0px 1px 1px #20abff;
+				/* 老的 Firefox */
+				box-shadow: 0px 0px 8px 3px #85abf2;
+				z-index: 99px;
 			}
-			.oa-contact-avatar img {
-				border-radius: 50%;
+			
+			.service_tip {
+				padding: 20px;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
 			}
-			.oa-contact-content {
-				width: 100%;
-			}
-			.oa-contact-name {
+			
+			.service_tip_text {
+				color: #000000;
+				position: relative;
+				height: 80px;
+				width: calc(100% - 140px);
+				padding: 10px;
 				margin-right: 20px;
+				border-radius: 10px;
+				background-color: #d2d0d5;
+				-moz-box-shadow: 0px 0px 8px 3px #f3f3f3;
+				/* 老的 Firefox */
+				box-shadow: 0px 0px 8px 3px #f3f3f3;
 			}
-			.oa-contact-name, oa-contact-position {
-				float: left;
+			
+			.service_tip_text:after {
+				content: " ";
+				position: absolute;
+				height: 10px;
+				width: 10px;
+				top: 35px;
+				right: -5px;
+				transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				/* IE 9 */
+				-moz-transform: rotate(45deg);
+				/* Firefox */
+				-webkit-transform: rotate(45deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(45deg);
+				bottom: -100%;
+				background: #d2d0d5;
+			}
+			
+			.service_way {
+				padding: 0 30px;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			
+			
+			.service_num {
+				margin-top: 150px;
+				padding: 0 20px;
+			}
+			
+			.mui-media-object {
+				border-radius: 50%;
+				width: 20px !important;
+				height: 20px !important;
 			}
 		</style>
 	</head>
@@ -49,107 +107,84 @@
 	<body>
 		<div class="mui-content">
 			<div class="title">
-				这是webview模式选项卡中的第3个子页面，该页面展示一个通讯录示例
+				<div class="service_header">
+					<div class="service_tip">
+						<div class="service_tip_text">
+							<div>您好，我是NG客服，</div>
+							<div>请问有什么可以帮助到您吗？</div>
+						</div>
+						<div class="service_tip_img">
+							<img width="80px" height="80px" src="../images/muwu.jpg" />
+						</div>
+					</div>
+					<div class="service_way">
+						<div class="item">
+							<img src="../images/60x60.gif">
+							<div id="">
+								QQ客服
+							</div>
+						</div>
+						<div class="item">
+							<img src="../images/60x60.gif">
+							<div id="">
+								活动客服
+							</div>
+						</div>
+						<div class="item">
+							<img src="../images/60x60.gif">
+							<div id="">
+								代理专线
+							</div>
+						</div>
+						<div class="item">
+							<img src="../images/60x60.gif">
+							<div id="">
+								在线客服
+							</div>
+						</div>
+					</div>
+
+				</div>
+
 			</div>
 
-			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-cell">
-						<div class="oa-contact-cell mui-table">
-							<div class="oa-contact-avatar mui-table-cell">
-								<img src="../images/60x60.gif" />
-							</div>
-							<div class="oa-contact-content mui-table-cell">
-								<div class="mui-clearfix">
-									<h4 class="oa-contact-name">叶文洁</h4>
-									<span class="oa-contact-position mui-h6">董事长</span>
-								</div>
-								<p class="oa-contact-email mui-h6">
-									yewenjie@sina.com
-								</p>
-							</div>
+			<ul class="mui-table-view service_num">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right service_num_file" src="../images/60x60.gif">
+						<div class="mui-media-body">
+							1.QQ客服：3003821000
 						</div>
-					</div>
+					</a>
 				</li>
 				<li class="mui-table-view-cell">
-					<div class="mui-slider-cell">
-						<div class="oa-contact-cell mui-table">
-							<div class="oa-contact-avatar mui-table-cell">
-								<img src="../images/60x60.gif" />
-							</div>
-							<div class="oa-contact-content mui-table-cell">
-								<div class="mui-clearfix">
-									<h4 class="oa-contact-name">艾AA</h4>
-									<span class="oa-contact-position mui-h6">总经理</span>
-								</div>
-								<p class="oa-contact-email mui-h6">
-									aaa@163.com
-								</p>
-							</div>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right service_num_file" src="../images/60x60.gif">
+						<div class="mui-media-body">
+							2.活动客服：3003821000
 						</div>
-					</div>
+					</a>
 				</li>
 				<li class="mui-table-view-cell">
-					<div class="mui-slider-cell">
-						<div class="oa-contact-cell mui-table">
-							<div class="oa-contact-avatar mui-table-cell">
-								<img src="../images/60x60.gif" />
-							</div>
-							<div class="oa-contact-content mui-table-cell">
-								<div class="mui-clearfix">
-									<h4 class="oa-contact-name">罗辑</h4>
-									<span class="oa-contact-position mui-h6">员工</span>
-								</div>
-								<p class="oa-contact-email mui-h6">
-									luoji@126.com
-								</p>
-							</div>
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right service_num_file" src="../images/60x60.gif">
+						<div class="mui-media-body">
+							3.代理专线：3003821000
 						</div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-cell">
-						<div class="oa-contact-cell mui-table">
-							<div class="oa-contact-avatar mui-table-cell">
-								<img src="../images/60x60.gif" />
-							</div>
-							<div class="oa-contact-content mui-table-cell">
-								<div class="mui-clearfix">
-									<h4 class="oa-contact-name">云天明</h4>
-									<span class="oa-contact-position mui-h6">员工</span>
-								</div>
-								<p class="oa-contact-email mui-h6">
-									ytm@163.com
-								</p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<div class="mui-slider-cell">
-						<div class="oa-contact-cell mui-table">
-							<div class="oa-contact-avatar mui-table-cell">
-								<img src="../images/60x60.gif" />
-							</div>
-							<div class="oa-contact-content mui-table-cell">
-								<div class="mui-clearfix">
-									<h4 class="oa-contact-name">史强</h4>
-									<span class="oa-contact-position mui-h6">员工</span>
-								</div>
-								<p class="oa-contact-email mui-h6">
-									shiqiang@gmail.com
-								</p>
-							</div>
-						</div>
-					</div>
+					</a>
 				</li>
 			</ul>
+			<div style="width: 100%;padding: 30px 20px 20px;">
+				<button type="button" style="width: 100%;" class="mui-btn mui-btn-primary mui-btn-outlined">在线客服</button>
+			</div>
+
 		</div>
 	</body>
 	<script src="../js/mui.min.js"></script>
 	<script>
 		mui.init({
-			swipeBack:true //启用右滑关闭功能
+			swipeBack: true //启用右滑关闭功能
 		});
 	</script>
+
 </html>

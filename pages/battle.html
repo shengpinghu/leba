@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/battle.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 id="title" class="mui-title">加拿大28</h1>
+		</header>
+		<div id="contain" class="mui-content contain">
+			<div class="battleInfo">
+				<div class="leftInfo">
+					<div>
+						<span>第</span>
+						<span>213456</span>
+						<span>期开奖</span>
+					</div>
+					<div class="time">
+						02：38
+					</div>
+				</div>
+				<div class="rightInfo">
+					<div>账户余额</div>
+					<div class="money">0</div>
+				</div>
+			</div>
+			<div class="result">
+				<span>第</span>
+				<span class="number">28899</span>
+				<span>期</span>
+				<span class="resultNum">1</span>
+				<span>+</span>
+				<span class="resultNum">6</span>
+				<span>+</span>
+				<span class="resultNum">9</span>
+				<span>=</span>
+				<span class="resultNum resultSum">16</span>
+				<span>(大双)</span>
+			</div>
+			<div class="purchaseInfo">
+
+			</div>
+			<div class="footer">
+				<a class="mui-btn mui-btn-primary" href="#picture">投注</a>
+				<button type="button" class="zhudan">注单</button>
+				<input type="text" name="" id="" v-model="moneyActive" />
+				<button type="button" class="mui-btn mui-btn-primary">发送</button>
+			</div>
+			<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+				<div class="panelTitle" v-text="panelTitle">
+				</div>
+				<div class="panel">
+					<div class="panelLeft">
+						<div v-for="(item, index) in chooseItem" class="chooseItem" :class="index ==activeIndex? 'chooseItemActive' : ''"
+						 v-text="item.value" @click="getActiveItem(index, item)">
+						</div>
+					</div>
+					<div>
+						<div class="panelRight">
+							<div class="panelItem" :class="item.hasChoose ? 'panelItemActive':''" v-for="(item, index) in itemList" @click="chooseList(item)"><span
+								 v-text="item.key" :key='item.key'></span><span v-text="item.value"></span></div>
+						</div>
+					</div>
+				</div>
+				<div class="moneyChoose">
+					<div class="moneyItem" :class="item == moneyActive ? 'moneyItemActive':''" v-for="(item, index) in money" v-text='item'
+					 @click="getMoneyActive(item)"></div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<script type="text/javascript">
+			mui.init()
+			var app = new Vue({
+				el: '#contain',
+				data: {
+					chooseItem: [{
+							Key: 0,
+							value: '大小单双'
+						},
+						{
+							Key: 1,
+							value: '猜数字'
+						},
+						{
+							Key: 2,
+							value: '特殊玩法'
+						},
+					],
+					itemList: [{
+							key: '大',
+							value: '1：2',
+							hasChoose: false
+						},
+						{
+							key: '小',
+							value: '1：2',
+							hasChoose: false
+						},
+						{
+							key: '单',
+							value: '1：2',
+							hasChoose: false
+						},
+						{
+							key: '双',
+							value: '1：2',
+							hasChoose: false
+						},
+						{
+							key: '极大',
+							value: '1：10',
+							hasChoose: false
+						},
+						{
+							key: '大单',
+							value: '1：4.2',
+							hasChoose: false
+						},
+						{
+							key: '小单',
+							value: '1：4.6',
+							hasChoose: false
+						},
+						{
+							key: '大双',
+							value: '1：4.2',
+							hasChoose: false
+						},
+						{
+							key: '小双',
+							value: '1：4.2',
+							hasChoose: false
+						},
+						{
+							key: '极小',
+							value: '1：10',
+							hasChoose: false
+						}
+					],
+					List: [
+						[{
+								key: '大',
+								value: '1：2',
+								hasChoose: false
+							},
+							{
+								key: '小',
+								value: '1：2',
+								hasChoose: false
+							},
+							{
+								key: '单',
+								value: '1：2',
+								hasChoose: false
+							},
+							{
+								key: '双',
+								value: '1：2',
+								hasChoose: false
+							},
+							{
+								key: '极大',
+								value: '1：10',
+								hasChoose: false
+							},
+							{
+								key: '大单',
+								value: '1：4.2',
+								hasChoose: false
+							},
+							{
+								key: '小单',
+								value: '1：4.6',
+								hasChoose: false
+							},
+							{
+								key: '大双',
+								value: '1：4.2',
+								hasChoose: false
+							},
+							{
+								key: '小双',
+								value: '1：4.2',
+								hasChoose: false
+							},
+							{
+								key: '极小',
+								value: '1：10',
+								hasChoose: false
+							}
+						],
+						[{
+								key: '0',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '1',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '2',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '3',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '4',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '5',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '6',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '7',
+								value: '1：12',
+								hasChoose: false
+							},
+							{
+								key: '8',
+								value: '1：4.2',
+								hasChoose: false
+							},
+							{
+								key: '9',
+								value: '1：10',
+								hasChoose: false
+							}
+						],
+						[{
+								key: '豹子',
+								value: '1：60',
+								hasChoose: false
+
+							},
+							{
+								key: '顺子',
+								value: '1：12',
+								hasChoose: false
+
+							},
+							{
+								key: '对子',
+								value: '1：3',
+								hasChoose: false
+							}
+						]
+					],
+					activeIndex: 0,
+					moneyActive: '',
+					panelTitle: '大小单双',
+					money: [50, 100, 200, 500, 1000, 2000, '梭哈']
+				},
+				created() {
+					this.itemList = this.List[0]
+				},
+				methods: {
+					getActiveItem(index, item) {
+						this.activeIndex = index;
+						this.itemList = this.List[index];
+						this.panelTitle = item.value;
+					},
+					getMoneyActive(item) {
+						this.moneyActive = item
+					},
+					chooseList(item) {
+						item.hasChoose = !item.hasChoose;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

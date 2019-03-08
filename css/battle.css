@@ -38,10 +38,12 @@
 }
 
 .result {
+	position: relative;
 	background: #FFFFFF;
 	font-size: 12px;
 	text-align: center;
 	padding: 10px;
+	display: block;
 }
 
 .number {
@@ -67,6 +69,7 @@
 	display: flex;
 	align-items: center;
 	z-index: 999;
+	width: 100%;
 }
 
 .footer>input {
@@ -169,4 +172,75 @@
 }
 .moneyItemActive {
 	background: rgba(30,144, 255, 1);
+}
+.historyItem > th, .historyItem > td {
+	text-align: center;
+}
+.historyPos {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	z-index: 88;
+}
+.personInfo {
+	display: flex;
+	padding: 14px;
+}
+.avatar {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+}
+.accountInfo {
+	display: flex;
+	flex-direction: column;
+
+}
+.betInfo {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	width: 200px;
+	margin: 0 17px;
+	background-color: #FFFFFF;
+	border-bottom-color: #FFFFFF;/*为了给after伪元素自动继承*/
+	color: #000000;
+	font-size: 12px;
+	line-height: 18px;
+	padding: 5px 12px 5px 12px;
+	box-sizing: border-box;
+	border-radius: 6px;
+	position: relative;
+	word-break: break-all;
+}
+.betInfo::after {
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	left: -14px;
+	top: 0px;
+	border-width: 0 10px 10px 0;
+	border-style: solid;
+	border-right-color: transparent;
+	border-bottom-color:inherit;
+	border-bottom-left-radius: 60px;
+}
+
+.nickName, .betTile, .betMoney {
+	display: flex;
+	align-items: center;
+	line-height: 30px;
+	justify-content: space-between;
+}
+.nickName {
+	margin-left: 18px;
+	color: #20abff;
+	font-size: 13px;
+}
+.betMoney {
+	background: #f7f7f7;
+	padding: 0 6px;
+	border-radius: 6px;
 }

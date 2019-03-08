@@ -31,7 +31,7 @@
 					<div class="money">0</div>
 				</div>
 			</div>
-			<div class="result">
+			<div class="result" @click="toggle">
 				<span>第</span>
 				<span class="number">28899</span>
 				<span>期</span>
@@ -43,13 +43,35 @@
 				<span>=</span>
 				<span class="resultNum resultSum">16</span>
 				<span>(大双)</span>
+				<table class="mui-table mui-table-view historyPos" v-if="historyShow">
+					<tr class="mui-table-view-cell historyItem">
+						<th>期号</th>
+						<th>开奖时间</th>
+						<th>开奖结果</th>
+					</tr>
+					<tr class="mui-table-view-cell historyItem" v-for="item in historyResultList" style="white-space: nowrap;">
+						<td v-text="item.code"></td>
+						<td v-text="item.time"></td>
+						<td v-html="item.result"></td>
+					</tr>
+				</table>
 			</div>
 			<div class="purchaseInfo">
-
+				<div class="personInfo" v-if="xiazhushow">
+					<img class="avatar" src="../images/60x60.gif" alt="">
+					<div class="accountInfo">
+						<div class="nickName">机器人</div>
+						<div class="betInfo">
+							<div class="betTile"><div>第<span class="money">213456</span>期</div>
+								<span>合计：100</span></div>
+							<div class="betMoney"><span>小</span><span>100</span></div>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="footer">
 				<a class="mui-btn mui-btn-primary" href="#picture">投注</a>
-				<button type="button" class="zhudan">注单</button>
+				<button type="button" class="zhudan"  @click="xiazhu">注单</button>
 				<input type="text" name="" id="" v-model="moneyActive" />
 				<button type="button" class="mui-btn mui-btn-primary">发送</button>
 			</div>
@@ -269,8 +291,72 @@
 							}
 						]
 					],
+					historyResultList: [
+						{
+							code: 2322,
+							time:'03-08 19:00',
+							result: `<div class="result"><span class="resultNum">1</span>
+				<span>+</span>
+				<span class="resultNum">6</span>
+				<span>+</span>
+				<span class="resultNum">9</span>
+				<span>=</span>
+				<span class="resultNum resultSum">16</span>
+				<span>(大双)</span></div>`
+						},
+						{
+							code: 2322,
+							time:'03-08 19:00',
+							result: `<div class="result"><span class="resultNum">1</span>
+				<span>+</span>
+				<span class="resultNum">6</span>
+				<span>+</span>
+				<span class="resultNum">9</span>
+				<span>=</span>
+				<span class="resultNum resultSum">16</span>
+				<span>(大双)</span></div>`
+						},
+						{
+							code: 2322,
+							time:'03-08 19:00',
+							result: `<div class="result"><span class="resultNum">1</span>
+				<span>+</span>
+				<span class="resultNum">6</span>
+				<span>+</span>
+				<span class="resultNum">9</span>
+				<span>=</span>
+				<span class="resultNum resultSum">16</span>
+				<span>(大双)</span></div>`
+						},
+						{
+							code: 2322,
+							time:'03-08 19:00',
+							result: `<div class="result"><span class="resultNum">1</span>
+				<span>+</span>
+				<span class="resultNum">6</span>
+				<span>+</span>
+				<span class="resultNum">9</span>
+				<span>=</span>
+				<span class="resultNum resultSum">16</span>
+				<span>(大双)</span></div>`
+						},
+						{
+							code: 2322,
+							time:'03-08 19:00',
+							result: `<div class="result"><span class="resultNum">1</span>
+				<span>+</span>
+				<span class="resultNum">6</span>
+				<span>+</span>
+				<span class="resultNum">9</span>
+				<span>=</span>
+				<span class="resultNum resultSum">16</span>
+				<span>(大双)</span></div>`
+						}
+					],
+					historyShow: false,
 					activeIndex: 0,
 					moneyActive: '',
+					xiazhushow: false,
 					panelTitle: '大小单双',
 					money: [50, 100, 200, 500, 1000, 2000, '梭哈']
 				},
@@ -288,6 +374,13 @@
 					},
 					chooseList(item) {
 						item.hasChoose = !item.hasChoose;
+					},
+					toggle() {
+						this.historyShow = !this.historyShow
+					},
+					xiazhu(){
+						if(!this.moneyActive) return;
+						this.xiazhushow = true
 					}
 				}
 			})

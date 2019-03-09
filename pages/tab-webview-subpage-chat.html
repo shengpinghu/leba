@@ -14,27 +14,27 @@
 			body {
 				background-color: #FFFFFF;
 			}
-			
+
 			.wallet_title {
 				font-family: "微软雅黑";
 				padding-top:20px;
 				text-align: center;
-				height: 100px;		
-				border-bottom: 1px solid #CCCCCC;	
+				height: 100px;
+				border-bottom: 1px solid #CCCCCC;
 			}
 			.wallet_balance{
 				font-size: 24px;
 				font-weight: 800;
 				margin-top: 10px;
 			}
-			
+
 			.mui-badge-black {
 				background-color: #000000;
 				color: #FFFFFF;
 			}
 			.wallet_safety{
 				position: relative;
-				bottom: -14px;			
+				bottom: -14px;
 			}
 			.wallet_safety>.mui-badge-primary{
 				padding: 3px 15px;
@@ -64,7 +64,7 @@
 					<span >账户余额</span>
 				</div>
 				<div class="wallet_balance">0.00</div>
-			
+
 				<div class="wallet_safety">
 					<span class="mui-badge mui-badge-primary">
 						<span class="mui-badge mui-badge-black">$</span>
@@ -98,61 +98,12 @@
 					</div>
 				</div>
 			</div>
-			
+
 			<div class="wallet_add_account">
 				<span class="mui-badge mui-badge-gray">+ 添加体现账户</span>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
-		<script>
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						callback: pullupRefresh
-					}
-				}
-			});
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for(var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-						//下拉刷新，新纪录插到最前面；
-						table.insertBefore(li, table.firstChild);
-					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1000);
-			}
-			var count = 0;
-			/**
-			 * 上拉加载具体业务实现
-			 */
-			function pullupRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for(var i = cells.length, len = i + 20; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell';
-						li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
-						table.appendChild(li);
-					}
-				}, 1000);
-			}
-		</script>
 	</body>
 
 </html>

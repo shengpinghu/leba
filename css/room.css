@@ -1,12 +1,16 @@
 .roomItem {
+    align-items: center;
+    justify-content: space-between;
     animation: typing 1s;
     display: flex;
     padding: 15px;
     color: #000;
     border-bottom: 1px solid #C0C0C0;
 }
-
-.roomItem > img {
+.leftContain {
+    display: flex;
+}
+.roomItem  img {
     border-radius: 50%;
     height: 60px;
     width: 60px;
@@ -33,4 +37,14 @@
     to {
        transform: scale(1) rotate(-360deg);;
     }
+}
+.desc {
+    font-size: 12px;
+    color: #c0c0c0;
+}
+.footerTips {
+    color: #c0c0c0;
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
 }

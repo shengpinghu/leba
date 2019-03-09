@@ -59,7 +59,7 @@
 	flex-shrink: 0;
 	align-items: center;
 	border-right: 1px solid #C0C0C0;
-	border-bottom: 1px solid #C0C0C0;	
+	border-bottom: 1px solid #C0C0C0;
 }
 .gameItem:nth-child(even) {
 	border-right: none;
@@ -77,4 +77,18 @@
 }
 .personNum {
 	color: #FF5053;
+}
+.marquee {
+	display: flex;
+	align-items: center;
+	background: #c0c0c0;
+	font-size: 12px;
+	padding: 5px 10px;
+	margin: 8px;
+	border-radius: 5px;
+}
+.marquee > img {
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
 }

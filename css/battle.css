@@ -1,246 +1,391 @@
 .battleInfo {
-	padding: 15px;
-	box-sizing: border-box;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	border-bottom: 1px solid #C0C0C0;
-	font-size: 14px;
-	background: #FFFFFF;
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #C0C0C0;
+    font-size: 14px;
+    background: #FFFFFF;
 }
 
 .rightInfo,
 .leftInfo {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
 }
 
 .leftInfo {
-	border-right: 1px solid #C0C0C0;
+    border-right: 1px solid #C0C0C0;
 }
 
 .money {
-	color: #FF5053;
+    color: #FF5053;
 }
 
 .time {
-	background: #000000;
-	border-radius: 5px;
-	width: 50px;
-	height: 20px;
-	line-height: 20px;
-	font-size: 12px;
-	color: #FFFFFF;
-	text-align: center;
+    background: #000000;
+    border-radius: 5px;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 .result {
-	position: relative;
-	background: #FFFFFF;
-	font-size: 12px;
-	text-align: center;
-	padding: 10px;
-	display: block;
+    position: relative;
+    background: #FFFFFF;
+    font-size: 12px;
+    text-align: center;
+    padding: 10px;
+    display: block;
 }
 
 .number {
-	color: cornflowerblue;
+    color: cornflowerblue;
 }
 
 .resultNum {
-	display: inline-block;
-	color: #FFFFFF;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	background: #6495ED;
+    display: inline-block;
+    color: #FFFFFF;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #6495ED;
 }
 
 .resultSum {
-	background: #FF0000;
+    background: #FF0000;
 }
 
 .footer {
-	position: fixed;
-	bottom: 0;
-	display: flex;
-	align-items: center;
-	z-index: 999;
-	width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    width: 100%;
 }
 
-.footer>input {
-	height: 32px;
-	padding: 0;
-	margin: 0;
+.footer > input {
+    height: 32px;
+    padding: 0;
+    margin: 0;
 }
 
 #picture {
-	border-top: 2px solid #007AFF;
-	position: fixed;
-	bottom: 33px;
-	width: 100%;
-	background: #FFFFFF;
+    border-top: 2px solid #007AFF;
+    position: fixed;
+    bottom: 33px;
+    width: 100%;
+    background: #FFFFFF;
 }
 
 .panel {
-	display: flex;
-	border-top: 0.51px solid #F3F3F3;
+    display: flex;
+    border-top: 0.51px solid #F3F3F3;
 }
 
 .panelTitle {
-	padding: 10px;
-	font-size: 16px;
-	text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    text-align: center;
 }
 
-.panel>.panelLeft {
-	min-height: 225px;
-	width: 100px;
-	font-size: 15px;
-	flex-shrink: 0;
-	border-right: 0.51px solid #F3F3F3;
+.panel > .panelLeft {
+    min-height: 225px;
+    width: 100px;
+    font-size: 15px;
+    flex-shrink: 0;
+    border-right: 0.51px solid #F3F3F3;
 }
 
 .chooseItem {
-	color: #CCCCCC;
-	display: block;
-	padding: 10px 0 10px 10px;
-	border-bottom: 0.51px solid #F3F3F3;
+    color: #CCCCCC;
+    display: block;
+    padding: 10px 0 10px 10px;
+    border-bottom: 0.51px solid #F3F3F3;
 }
 
 .chooseItemActive {
-	color: #007AFF;
-	border-left: #007AFF solid 3px;
+    color: #007AFF;
+    border-left: #007AFF solid 3px;
 }
 
 .chooseItemActive:after {
-	display: inline-block;
-	content: '>';
-	height: 10px;
-	width: 10px;
-	margin-left: 10px;
-	color: #007AFF;
+    display: inline-block;
+    content: '>';
+    height: 10px;
+    width: 10px;
+    margin-left: 10px;
+    color: #007AFF;
 }
 
 .panelRight {
-	padding: 10px;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .panelItem {
-	display: flex;
-	flex-wrap: nowrap;
-	justify-content: space-between;
-	font-size: 14px;
-	color: #C7C7CC;
-	margin-bottom: 10px;
-	padding: 5px 10px;
-	box-sizing: border-box;
-	width: calc(50% - 10px);
-	flex-shrink: 0;
-	background: #F3F3F3;
-	border-radius: 10px;
-	text-align: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #C7C7CC;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    width: calc(50% - 10px);
+    flex-shrink: 0;
+    background: #F3F3F3;
+    border-radius: 10px;
+    text-align: center;
 }
+
 .panelItemActive {
-	background: #007AFF;
-	color: #FFFFFF;
+    background: #007AFF;
+    color: #FFFFFF;
 }
+
 .moneyChoose {
-	background: #F3F3F3;
-	padding: 10px;
-	display: flex;
-	align-items: center;
-	flex-wrap: wrap;
-	font-size: 13px;
-	justify-content: space-between;
+    background: #F3F3F3;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 13px;
+    justify-content: space-between;
 }
+
 .moneyItem {
-	cursor: pointer;
-	height: 40px;
-	width: 40px;
-	line-height: 40px;
-	border-radius: 50%;
-	text-align: center;
-	background: rgba(30,144, 255, 0.2);
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    background: rgba(30, 144, 255, 0.2);
 }
+
 .moneyItemActive {
-	background: rgba(30,144, 255, 1);
+    background: rgba(30, 144, 255, 1);
 }
+
 .historyItem > th, .historyItem > td {
-	text-align: center;
+    text-align: center;
 }
+
 .historyPos {
-	position: absolute;
-	top: 100%;
-	left: 0;
-	width: 100%;
-	z-index: 88;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 88;
 }
+
+.purchaseInfo {
+    padding-bottom: 50px;
+}
+
 .personInfo {
-	display: flex;
-	padding: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    padding: 14px;
 }
+
 .avatar {
-	height: 50px;
-	width: 50px;
-	border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
+
 .accountInfo {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 
 }
+
 .betInfo {
-	display: flex;
-	flex-direction: column;
-	flex-shrink: 0;
-	width: 200px;
-	margin: 0 17px;
-	background-color: #FFFFFF;
-	border-bottom-color: #FFFFFF;/*为了给after伪元素自动继承*/
-	color: #000000;
-	font-size: 12px;
-	line-height: 18px;
-	padding: 5px 12px 5px 12px;
-	box-sizing: border-box;
-	border-radius: 6px;
-	position: relative;
-	word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 200px;
+    margin: 0 17px;
+    background-color: #FFFFFF;
+    border-bottom-color: #FFFFFF; /*为了给after伪元素自动继承*/
+    color: #000000;
+    font-size: 12px;
+    line-height: 18px;
+    padding: 5px 12px 5px 12px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    position: relative;
+    word-break: break-all;
 }
+
 .betInfo::after {
-	content: '';
-	position: absolute;
-	width: 10px;
-	height: 10px;
-	left: -14px;
-	top: 0px;
-	border-width: 0 10px 10px 0;
-	border-style: solid;
-	border-right-color: transparent;
-	border-bottom-color:inherit;
-	border-bottom-left-radius: 60px;
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: -14px;
+    top: 0px;
+    border-width: 0 10px 10px 0;
+    border-style: solid;
+    border-right-color: transparent;
+    border-bottom-color: inherit;
+    border-bottom-left-radius: 60px;
 }
 
 .nickName, .betTile, .betMoney {
-	display: flex;
-	align-items: center;
-	line-height: 30px;
-	justify-content: space-between;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+    justify-content: space-between;
 }
+
 .nickName {
-	margin-left: 18px;
-	color: #20abff;
-	font-size: 13px;
+    margin-left: 18px;
+    color: #20abff;
+    font-size: 13px;
 }
+
 .betMoney {
-	background: #f7f7f7;
-	padding: 0 6px;
-	border-radius: 6px;
+    background: #f7f7f7;
+    padding: 0 6px;
+    border-radius: 6px;
 }
+
+.notify {
+    display: flex;
+    flex-direction: column;
+    background: #8f8f94;
+    color: #f7f7f7;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    font-size: 12px;
+}
+
+.notify > div {
+    text-align: center;
+}
+
+.noBorder::before {
+    background: transparent !important;
+}
+
+.noBorder::after {
+    background: transparent !important;
+}
+
+.followMePos {
+    font-size: 13px;
+}
+
+.followMePos > thead {
+    border-bottom: 1px solid #c0c0c0;
+    color: #c0c0c0;
+}
+
+.followMePos th, .followMePos td {
+    text-align: center;
+}
+
+.followTile {
+    background: #20abff;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 8px;
+}
+
+.containFollow {
+    min-height: 100px;
+}
+
+.followFooter {
+    border-top: 1px solid #c0c0c0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    padding-right: 15px;
+    font-size: 12px;
+    color: #c0c0c0;
+}
+
+.btn-group {
+    border-top: 1px solid #c0c0c0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cancel, .confirm {
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+}
+
+.confirm {
+    color: #3db8fc;
+}
+
+.cancel {
+    color: #FF0000;
+    border-right: 1px solid #c0c0c0;
+}
+
+.mui-popover-arrow {
+    display: none !important;
+}
+
+#followMe {
+    top: 50% !important;
+    transform: translateY(-50%);
+}
+
+.rightMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 10px;
+    bottom: 70px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: 9999;
+    background: rgba(30, 144, 255, 0.7);
+
+}
+.rightMenuItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+
+#rightPopoverMenu {
+    right: 5px;
+    bottom: 120px;
+    position: fixed;
+}
+#rightPopoverMenu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+

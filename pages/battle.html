@@ -1,301 +1,400 @@
 <!doctype html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="../css/mui.css" rel="stylesheet" />
-		<link href="../css/battle.css" rel="stylesheet" />
-	</head>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <link href="../css/mui.css" rel="stylesheet"/>
+    <link href="../css/battle.css" rel="stylesheet"/>
+</head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 id="title" class="mui-title">加拿大28</h1>
-		</header>
-		<div id="contain" class="mui-content contain">
-			<div class="battleInfo">
-				<div class="leftInfo">
-					<div>
-						<span>第</span>
-						<span>213456</span>
-						<span>期开奖</span>
-					</div>
-					<div class="time">
-						02：38
-					</div>
-				</div>
-				<div class="rightInfo">
-					<div>账户余额</div>
-					<div class="money">0</div>
-				</div>
-			</div>
-			<div class="result" @click="toggle">
-				<span>第</span>
-				<span class="number">28899</span>
-				<span>期</span>
-				<span class="resultNum">1</span>
-				<span>+</span>
-				<span class="resultNum">6</span>
-				<span>+</span>
-				<span class="resultNum">9</span>
-				<span>=</span>
-				<span class="resultNum resultSum">16</span>
-				<span>(大双)</span>
-				<table class="mui-table mui-table-view historyPos" v-if="historyShow">
-					<tr class="mui-table-view-cell historyItem">
-						<th>期号</th>
-						<th>开奖时间</th>
-						<th>开奖结果</th>
-					</tr>
-					<tr class="mui-table-view-cell historyItem" v-for="item in historyResultList" style="white-space: nowrap;">
-						<td v-text="item.code"></td>
-						<td v-text="item.time"></td>
-						<td v-html="item.result"></td>
-					</tr>
-				</table>
-			</div>
-			<div class="purchaseInfo">
-				<div class="personInfo" v-if="xiazhushow">
-					<img class="avatar" src="../images/60x60.gif" alt="">
-					<div class="accountInfo">
-						<div class="nickName">机器人</div>
-						<div class="betInfo">
-							<div class="betTile"><div>第<span class="money">213456</span>期</div>
-								<span>合计：100</span></div>
-							<div class="betMoney"><span>小</span><span>100</span></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="footer">
-				<a class="mui-btn mui-btn-primary" href="#picture">投注</a>
-				<button type="button" class="zhudan"  @click="xiazhu">注单</button>
-				<input type="text" name="" id="" v-model="moneyActive" />
-				<button type="button" class="mui-btn mui-btn-primary">发送</button>
-			</div>
-			<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
-				<div class="panelTitle" v-text="panelTitle">
-				</div>
-				<div class="panel">
-					<div class="panelLeft">
-						<div v-for="(item, index) in chooseItem" class="chooseItem" :class="index ==activeIndex? 'chooseItemActive' : ''"
-						 v-text="item.value" @click="getActiveItem(index, item)">
-						</div>
-					</div>
-					<div>
-						<div class="panelRight">
-							<div class="panelItem" :class="item.hasChoose ? 'panelItemActive':''" v-for="(item, index) in itemList" @click="chooseList(item)"><span
-								 v-text="item.key" :key='item.key'></span><span v-text="item.value"></span></div>
-						</div>
-					</div>
-				</div>
-				<div class="moneyChoose">
-					<div class="moneyItem" :class="item == moneyActive ? 'moneyItemActive':''" v-for="(item, index) in money" v-text='item'
-					 @click="getMoneyActive(item)"></div>
-				</div>
-			</div>
-		</div>
-		<script src="../js/mui.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<body>
+<header class="mui-bar mui-bar-nav" style="background: #007aff">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" style="color: #fff;"></a>
+    <h1 id="title" class="mui-title" style="color: #fff">加拿大28</h1>
+</header>
+<div id="contain" class="mui-content contain">
+    <div class="battleInfo">
+        <div class="leftInfo">
+            <div>
+                <span>第</span>
+                <span>213456</span>
+                <span>期开奖</span>
+            </div>
+            <div class="time">
+                02：38
+            </div>
+        </div>
+        <div class="rightInfo">
+            <div>账户余额</div>
+            <div class="money">0</div>
+        </div>
+    </div>
+    <div class="result" @click="toggle">
+        <span>第</span>
+        <span class="number">28899</span>
+        <span>期</span>
+        <span class="resultNum">1</span>
+        <span>+</span>
+        <span class="resultNum">6</span>
+        <span>+</span>
+        <span class="resultNum">9</span>
+        <span>=</span>
+        <span class="resultNum resultSum">16</span>
+        <span>(大双)</span>
+        <table class="mui-table mui-table-view historyPos" v-if="historyShow">
+            <tr class="mui-table-view-cell historyItem">
+                <th>期号</th>
+                <th>开奖时间</th>
+                <th>开奖结果</th>
+            </tr>
+            <tr class="mui-table-view-cell historyItem" v-for="item in historyResultList" style="white-space: nowrap;">
+                <td v-text="item.code"></td>
+                <td v-text="item.time"></td>
+                <td v-html="item.result"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="purchaseInfo">
+        <a class="personInfo" href="#followMe" v-show="xiazhushow">
+            <img class="avatar" src="../images/60x60.gif" alt="">
+            <div class="accountInfo">
+                <div class="nickName">机器人</div>
+                <div class="betInfo">
+                    <div class="betTile">
+                        <div>第<span class="money">213456</span>期</div>
+                        <span>合计：100</span></div>
+                    <div class="betMoney"><span>小</span><span>100</span></div>
+                </div>
+            </div>
+        </a>
 
-		<script type="text/javascript">
-			mui.init()
-			var app = new Vue({
-				el: '#contain',
-				data: {
-					chooseItem: [{
-							Key: 0,
-							value: '大小单双'
-						},
-						{
-							Key: 1,
-							value: '猜数字'
-						},
-						{
-							Key: 2,
-							value: '特殊玩法'
-						},
-					],
-					itemList: [{
-							key: '大',
-							value: '1：2',
-							hasChoose: false
-						},
-						{
-							key: '小',
-							value: '1：2',
-							hasChoose: false
-						},
-						{
-							key: '单',
-							value: '1：2',
-							hasChoose: false
-						},
-						{
-							key: '双',
-							value: '1：2',
-							hasChoose: false
-						},
-						{
-							key: '极大',
-							value: '1：10',
-							hasChoose: false
-						},
-						{
-							key: '大单',
-							value: '1：4.2',
-							hasChoose: false
-						},
-						{
-							key: '小单',
-							value: '1：4.6',
-							hasChoose: false
-						},
-						{
-							key: '大双',
-							value: '1：4.2',
-							hasChoose: false
-						},
-						{
-							key: '小双',
-							value: '1：4.2',
-							hasChoose: false
-						},
-						{
-							key: '极小',
-							value: '1：10',
-							hasChoose: false
-						}
-					],
-					List: [
-						[{
-								key: '大',
-								value: '1：2',
-								hasChoose: false
-							},
-							{
-								key: '小',
-								value: '1：2',
-								hasChoose: false
-							},
-							{
-								key: '单',
-								value: '1：2',
-								hasChoose: false
-							},
-							{
-								key: '双',
-								value: '1：2',
-								hasChoose: false
-							},
-							{
-								key: '极大',
-								value: '1：10',
-								hasChoose: false
-							},
-							{
-								key: '大单',
-								value: '1：4.2',
-								hasChoose: false
-							},
-							{
-								key: '小单',
-								value: '1：4.6',
-								hasChoose: false
-							},
-							{
-								key: '大双',
-								value: '1：4.2',
-								hasChoose: false
-							},
-							{
-								key: '小双',
-								value: '1：4.2',
-								hasChoose: false
-							},
-							{
-								key: '极小',
-								value: '1：10',
-								hasChoose: false
-							}
-						],
-						[{
-								key: '0',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '1',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '2',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '3',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '4',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '5',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '6',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '7',
-								value: '1：12',
-								hasChoose: false
-							},
-							{
-								key: '8',
-								value: '1：4.2',
-								hasChoose: false
-							},
-							{
-								key: '9',
-								value: '1：10',
-								hasChoose: false
-							}
-						],
-						[{
-								key: '豹子',
-								value: '1：60',
-								hasChoose: false
+        <div class="personInfo" v-show="xiazhushow">
+            <div class="notify">
+                <div>封盘以官方【南宫湖畔】为准</div>
+                <div>账户随时变动，请注意自己的账户</div>
+                <div>一旦有财产损失,概不负责</div>
+            </div>
+        </div>
+        <div class="personInfo" v-show="xiazhushow">
+            <img class="avatar" src="../images/60x60.gif" alt="">
+            <div class="accountInfo">
+                <div class="nickName">机器人</div>
+                <div class="betInfo">
+                    <div class="betTile">第21299期投注账单</div>
+                    <ul class="mui-table-view noBorder">
+                        <li class="mui-table-view-cell mui-collapse">
+                            <a class="mui-navigate-right" href="#">南宫(100)</a>
+                            <div class="mui-collapse-content">
+                                <div class="betMoney"><span>小</span><span>100</span></div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-collapse">
+                            <a class="mui-navigate-right" href="#">南宫(100)</a>
+                            <div class="mui-collapse-content">
+                                <div class="betMoney"><span>小</span><span>100</span></div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell mui-collapse">
+                            <a class="mui-navigate-right" href="#">南宫(100)</a>
+                            <div class="mui-collapse-content">
+                                <div class="betMoney"><span>小</span><span>100</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer" v-show="bottomChange">
+        <a class="mui-btn mui-btn-primary" @click="show">投注</a>
+        <button type="button" class="zhudan">注单</button>
+        <input type="text" name="" id="" v-model="moneyActive"/>
+        <button type="button" class="mui-btn mui-btn-primary">发送</button>
+    </div>
+    <div class="footer" v-show="!bottomChange">
+        <input type="text" v-model="moneyActive"/>
+        <a class="mui-btn mui-btn-primary" @click="show">投注</a>
+        <button type="button" class="zhudan">加入注单</button>
+        <button type="button" class="mui-btn mui-btn-primary" @click="show">取消</button>
+    </div>
+    <div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+        <div class="panelTitle" v-text="panelTitle">
+        </div>
+        <div class="panel">
+            <div class="panelLeft">
+                <div v-for="(item, index) in chooseItem" class="chooseItem"
+                     :class="index ==activeIndex? 'chooseItemActive' : ''"
+                     v-text="item.value" @click="getActiveItem(index, item)">
+                </div>
+            </div>
+            <div>
+                <div class="panelRight">
+                    <div class="panelItem" :class="item.hasChoose ? 'panelItemActive':''"
+                         v-for="(item, index) in itemList" @click="chooseList(item)"><span
+                            v-text="item.key" :key='item.key'></span><span v-text="item.value"></span></div>
+                </div>
+            </div>
+        </div>
+        <div class="moneyChoose">
+            <div class="moneyItem" :class="item == moneyActive ? 'moneyItemActive':''" v-for="(item, index) in money"
+                 v-text='item'
+                 @click="getMoneyActive(item)"></div>
+        </div>
+    </div>
+    <div id="followMe" class="mui-popover">
+        <div class="followTile">跟投注单 2010099期</div>
+        <div class="containFollow">
+            <table class="mui-table mui-table-view followMePos">
+                <thead>
+                <tr class="mui-table-view-cell followMeList">
+                    <th>选中号码</th>
+                    <th>赔率</th>
+                    <th></th>
+                    <th>金额</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="mui-table-view-cell historyItem" v-for="item in followMeList" style="white-space: nowrap;">
+                    <td v-text="item.a"></td>
+                    <td v-text="item.b"></td>
+                    <td>x</td>
+                    <td v-html="item.c"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="followFooter">
+            <div>若中奖，奖金<span class="money">423</span>，盈利<span class="money">300</span></div>
+            <div>注单<span class="money">1</span>条，金额<span class="money">100</span></div>
+        </div>
+        <div class="btn-group">
+            <a class="cancel" href="#followMe">取消</a>
+            <a class="confirm" href="#followMe">确认</a>
+        </div>
+    </div>
+    <div id="rightPopoverMenu" v-if="rightMenuShow">
+        <div class="rightMenuList">
+            <div class="rightMenuItem">
+                <img src="../images/xyft.png" alt="">
+                <div>开奖结果</div>
+            </div>
+            <div class="rightMenuItem">
+                <img src="../images/yuantiao.jpg" alt="">
+                <div>玩法介绍</div>
+            </div>
+            <div class="rightMenuItem">
+                <img src="../images/yuyin_1.png" alt="">
+                <div>开奖走势</div>
+            </div>
+        </div>
 
-							},
-							{
-								key: '顺子',
-								value: '1：12',
-								hasChoose: false
+    </div>
+    <div class="rightMenu" @click="rightMenuToggle">
+        <a class="mui-icon" :class="rightMenuShow ? 'mui-icon-arrowup' : 'mui-icon-arrowdown'"></a>
+    </div>
+</div>
+<script src="../js/mui.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-							},
-							{
-								key: '对子',
-								value: '1：3',
-								hasChoose: false
-							}
-						]
-					],
-					historyResultList: [
-						{
-							code: 2322,
-							time:'03-08 19:00',
-							result: `<div class="result"><span class="resultNum">1</span>
+<script type="text/javascript">
+    mui.init()
+    var app = new Vue({
+        el: '#contain',
+        data: {
+            chooseItem: [{
+                Key: 0,
+                value: '大小单双'
+            },
+                {
+                    Key: 1,
+                    value: '猜数字'
+                },
+                {
+                    Key: 2,
+                    value: '特殊玩法'
+                },
+            ],
+            itemList: [{
+                key: '大',
+                value: '1：2',
+                hasChoose: false
+            },
+                {
+                    key: '小',
+                    value: '1：2',
+                    hasChoose: false
+                },
+                {
+                    key: '单',
+                    value: '1：2',
+                    hasChoose: false
+                },
+                {
+                    key: '双',
+                    value: '1：2',
+                    hasChoose: false
+                },
+                {
+                    key: '极大',
+                    value: '1：10',
+                    hasChoose: false
+                },
+                {
+                    key: '大单',
+                    value: '1：4.2',
+                    hasChoose: false
+                },
+                {
+                    key: '小单',
+                    value: '1：4.6',
+                    hasChoose: false
+                },
+                {
+                    key: '大双',
+                    value: '1：4.2',
+                    hasChoose: false
+                },
+                {
+                    key: '小双',
+                    value: '1：4.2',
+                    hasChoose: false
+                },
+                {
+                    key: '极小',
+                    value: '1：10',
+                    hasChoose: false
+                }
+            ],
+            List: [
+                [{
+                    key: '大',
+                    value: '1：2',
+                    hasChoose: false
+                },
+                    {
+                        key: '小',
+                        value: '1：2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '单',
+                        value: '1：2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '双',
+                        value: '1：2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '极大',
+                        value: '1：10',
+                        hasChoose: false
+                    },
+                    {
+                        key: '大单',
+                        value: '1：4.2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '小单',
+                        value: '1：4.6',
+                        hasChoose: false
+                    },
+                    {
+                        key: '大双',
+                        value: '1：4.2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '小双',
+                        value: '1：4.2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '极小',
+                        value: '1：10',
+                        hasChoose: false
+                    }
+                ],
+                [{
+                    key: '0',
+                    value: '1：12',
+                    hasChoose: false
+                },
+                    {
+                        key: '1',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '2',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '3',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '4',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '5',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '6',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '7',
+                        value: '1：12',
+                        hasChoose: false
+                    },
+                    {
+                        key: '8',
+                        value: '1：4.2',
+                        hasChoose: false
+                    },
+                    {
+                        key: '9',
+                        value: '1：10',
+                        hasChoose: false
+                    }
+                ],
+                [{
+                    key: '豹子',
+                    value: '1：60',
+                    hasChoose: false
+
+                },
+                    {
+                        key: '顺子',
+                        value: '1：12',
+                        hasChoose: false
+
+                    },
+                    {
+                        key: '对子',
+                        value: '1：3',
+                        hasChoose: false
+                    }
+                ]
+            ],
+            historyResultList: [
+                {
+                    code: 2322,
+                    time: '03-08 19:00',
+                    result: `<div class="result"><span class="resultNum">1</span>
 				<span>+</span>
 				<span class="resultNum">6</span>
 				<span>+</span>
@@ -303,11 +402,11 @@
 				<span>=</span>
 				<span class="resultNum resultSum">16</span>
 				<span>(大双)</span></div>`
-						},
-						{
-							code: 2322,
-							time:'03-08 19:00',
-							result: `<div class="result"><span class="resultNum">1</span>
+                },
+                {
+                    code: 2322,
+                    time: '03-08 19:00',
+                    result: `<div class="result"><span class="resultNum">1</span>
 				<span>+</span>
 				<span class="resultNum">6</span>
 				<span>+</span>
@@ -315,11 +414,11 @@
 				<span>=</span>
 				<span class="resultNum resultSum">16</span>
 				<span>(大双)</span></div>`
-						},
-						{
-							code: 2322,
-							time:'03-08 19:00',
-							result: `<div class="result"><span class="resultNum">1</span>
+                },
+                {
+                    code: 2322,
+                    time: '03-08 19:00',
+                    result: `<div class="result"><span class="resultNum">1</span>
 				<span>+</span>
 				<span class="resultNum">6</span>
 				<span>+</span>
@@ -327,11 +426,11 @@
 				<span>=</span>
 				<span class="resultNum resultSum">16</span>
 				<span>(大双)</span></div>`
-						},
-						{
-							code: 2322,
-							time:'03-08 19:00',
-							result: `<div class="result"><span class="resultNum">1</span>
+                },
+                {
+                    code: 2322,
+                    time: '03-08 19:00',
+                    result: `<div class="result"><span class="resultNum">1</span>
 				<span>+</span>
 				<span class="resultNum">6</span>
 				<span>+</span>
@@ -339,11 +438,11 @@
 				<span>=</span>
 				<span class="resultNum resultSum">16</span>
 				<span>(大双)</span></div>`
-						},
-						{
-							code: 2322,
-							time:'03-08 19:00',
-							result: `<div class="result"><span class="resultNum">1</span>
+                },
+                {
+                    code: 2322,
+                    time: '03-08 19:00',
+                    result: `<div class="result"><span class="resultNum">1</span>
 				<span>+</span>
 				<span class="resultNum">6</span>
 				<span>+</span>
@@ -351,40 +450,54 @@
 				<span>=</span>
 				<span class="resultNum resultSum">16</span>
 				<span>(大双)</span></div>`
-						}
-					],
-					historyShow: false,
-					activeIndex: 0,
-					moneyActive: '',
-					xiazhushow: false,
-					panelTitle: '大小单双',
-					money: [50, 100, 200, 500, 1000, 2000, '梭哈']
-				},
-				created() {
-					this.itemList = this.List[0]
-				},
-				methods: {
-					getActiveItem(index, item) {
-						this.activeIndex = index;
-						this.itemList = this.List[index];
-						this.panelTitle = item.value;
-					},
-					getMoneyActive(item) {
-						this.moneyActive = item
-					},
-					chooseList(item) {
-						item.hasChoose = !item.hasChoose;
-					},
-					toggle() {
-						this.historyShow = !this.historyShow
-					},
-					xiazhu(){
-						if(!this.moneyActive) return;
-						this.xiazhushow = true
-					}
-				}
-			})
-		</script>
-	</body>
+                }
+            ],
+            followMeList: [
+                {
+                    a: '大双',
+                    b: '4/2.5',
+                    c: '100'
+                }
+
+            ],
+            historyShow: false,
+            activeIndex: 0,
+            moneyActive: '',
+            bottomChange: true,
+            xiazhushow: false,
+            rightMenuShow: false,
+            panelTitle: '大小单双',
+            money: [50, 100, 200, 500, 1000, 2000, '梭哈']
+        },
+        created() {
+            this.itemList = this.List[0]
+        },
+        methods: {
+            getActiveItem(index, item) {
+                this.activeIndex = index;
+                this.itemList = this.List[index];
+                this.panelTitle = item.value;
+            },
+            getMoneyActive(item) {
+                this.moneyActive = item
+            },
+            chooseList(item) {
+                item.hasChoose = !item.hasChoose;
+            },
+            toggle() {
+                this.historyShow = !this.historyShow
+            },
+            show() {
+                this.xiazhushow = true
+                this.bottomChange = !this.bottomChange;
+                mui("#picture").popover('toggle');
+            },
+            rightMenuToggle() {
+                this.rightMenuShow = !this.rightMenuShow
+            }
+        }
+    })
+</script>
+</body>
 
 </html>

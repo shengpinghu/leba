@@ -152,7 +152,12 @@
 					"images/shuijiao.jpg",
 					"css/mui.min.css",
 					"pages/room.html",
-					"js/mui.min.js"
+					"js/mui.min.js",
+					"images/bg_4.png",
+					"images/bg_2.png",
+					"images/bg_3.jpg",
+					"images/bg_1.png",
+					"images/bg_5.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -164,6 +169,29 @@
 					"js/mui.js",
 					"css/mui.css",
 					"fonts/mui.ttf"
+				],
+				"refer": [
+					"pages/battle.html"
+				],
+				"priority": 0
+			},
+			"pages/tab-webview-subpage-setting.html": {
+				"resources": [
+					"images/zhifubao_0.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/tab-webview-subpage-contact.html": {
+				"resources": [
+					"images/muwu.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/battle.html": {
+				"resources": [
+					"css/battle.css"
 				],
 				"refer": [],
 				"priority": 0

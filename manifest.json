@@ -157,7 +157,15 @@
 					"images/bg_2.png",
 					"images/bg_3.jpg",
 					"images/bg_1.png",
-					"images/bg_5.png"
+					"images/bg_5.png",
+					"images/pic_cq28.png",
+					"images/pic_jndx28.png",
+					"images/jndffc.png",
+					"images/icon_trends.png",
+					"images/btbsc.png",
+					"images/icon_scroll.png",
+					"images/icon_gift.png",
+					"images/btbffc.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -168,7 +176,8 @@
 					"images/60x60.gif",
 					"js/mui.js",
 					"css/mui.css",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"images/jndffc.png"
 				],
 				"refer": [
 					"pages/battle.html"
@@ -191,7 +200,14 @@
 			},
 			"pages/battle.html": {
 				"resources": [
-					"css/battle.css"
+					"css/battle.css",
+					"images/yuantiao.jpg",
+					"images/xyft.png",
+					"js/mui.js",
+					"css/mui.css",
+					"images/yuyin_1.png",
+					"fonts/mui.ttf",
+					"images/60x60.gif"
 				],
 				"refer": [],
 				"priority": 0

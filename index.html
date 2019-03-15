@@ -10,37 +10,47 @@
 
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/home.css">
 		<!--App自定义的css-->
 		<!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav" style="background: #007aff">
-			<h1 id="title" style="color: #FFFFFF" class="mui-title">大厅</h1>
+		<header class="mui-bar mui-bar-nav setHeader">
+			<div class="myInfo">
+				<img src="images/personal.png"/>
+				<span>我的</span>
+			</div>
+			<div id="title">
+				大厅
+			</div>
+			<div>
+				最近游戏
+			</div>
 		</header>
 		<nav class="mui-bar mui-bar-tab">
-			<a id="defaultTab" class="mui-tab-item mui-active" href="/pages/tab-webview-subpage-about.html">
-				<span class="mui-icon mui-icon-home"></span>
+			<a id="defaultTab" class="mui-tab-item mui-active" href="/pages/home.html">
+				<span class="mui-icon home-img"></span>
 				<span class="mui-tab-label">大厅</span>
 			</a>
-			<a class="mui-tab-item" href="/pages/tab-webview-subpage-chat.html">
-				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+			<a class="mui-tab-item" href="/pages/wallet.html">
+				<span class="mui-icon wallet-img"></span>
 				<span class="mui-tab-label">钱包</span>
 			</a>
-			<a class="mui-tab-item" href="/pages/tab-webview-subpage-contact.html">
-				<span class="mui-icon mui-icon-contact"></span>
+			<a class="mui-tab-item" href="/pages/service.html">
+				<span class="mui-icon service-img"></span>
 				<span class="mui-tab-label">客服</span>
 			</a>
 			<a class="mui-tab-item" href="/pages/tab-webview-subpage-setting.html">
-				<span class="mui-icon mui-icon-gear"></span>
-				<span class="mui-tab-label">充值</span>
+				<span class="mui-icon personal-img"></span>
+				<span class="mui-tab-label">个人</span>
 			</a>
 		</nav>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			 //mui初始化
 			mui.init();
-			var subpages = ['/pages/tab-webview-subpage-about.html', '/pages/tab-webview-subpage-chat.html', '/pages/tab-webview-subpage-contact.html', '/pages/tab-webview-subpage-setting.html'];
+			var subpages = ['/pages/home.html', '/pages/wallet.html', '/pages/service.html', '/pages/tab-webview-subpage-setting.html'];
 			var subpage_style = {
 				top: '45px',
 				bottom: '51px'
@@ -50,6 +60,7 @@
 
 			 //创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
+				 	
 				var self = plus.webview.currentWebview();
 				for (var i = 0; i < 4; i++) {
 					var temp = {};

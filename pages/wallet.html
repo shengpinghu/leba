@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/home.css">
+		<style>
+			html,
+			body, .mui-content {
+				background-color: #FFFFFF;
+			}
+			
+			
+			
+			.wallet_title {
+				position: inherit;
+				z-index: 5;
+				font-family: "微软雅黑";
+				padding: 25px 0 0;
+				text-align: center;
+				color: #FFFFFF;
+			}
+			
+			.wallet_title>div {
+				margin-bottom: 20px;
+			}
+			
+			.wallet_title_img {
+				margin-bottom: 10px;
+				height: 65px;
+				width: 65px;
+			}
+			
+			.wallet_balance_text {
+				font-size: 18px;
+			}
+			
+			.wallet_balance {
+				font-size: 30px;
+				font-weight: 800;
+				margin-top: 10px;
+			}
+			
+			.mui-badge-black {}
+			
+			.wallet_safety {
+				background-color: #FFFFFF;
+				color: #2F80ED;
+				border-radius: 10px;
+				padding: 5px 13px;
+				color: #2F80ED;
+				font-size: 11px;
+			}
+			
+			.wallet_safety>img {
+				height: 14px;
+				width: 12px;
+				margin-right: 9px;
+				vertical-align: middle;
+			}
+			
+			.wallet_way {
+				z-index: 5;
+				position: inherit;
+				background-color: #FFFFFF;
+				padding: 10px;
+				box-sizing: border-box;
+				display: flex;
+				flex-wrap: wrap;
+				align-content: space-between;
+				margin: 0 30px 10px;
+				border-radius: 8px;
+				-moz-box-shadow: 0px 0px 5px 2px #cccccc;
+				/* 老的 Firefox */
+				box-shadow: 0px 0px 5px 2px #CCCCCC;
+			}
+			
+			.wallet_way>.column {
+				flex-basis: 100%;
+				display: flex;
+				justify-content: space-around;
+				color: #716F6F;
+			}
+			
+			.wallet_way>.column:first-child {
+				border-bottom: 1px solid rgba(136, 134, 134, .3);
+			}
+			
+			.wallet_way>.column:first-child>div {
+				padding-top: 10px;
+			}
+			.wallet_way>.column>div {
+				flex: 12;
+				text-align: center;
+				font-size: 11px;
+
+				padding: 10px;
+			}
+			
+			.wallet_way>.column>div:first-child {
+				border-right: 1px solid rgba(136, 134, 134, .3);
+			}
+			
+			.wallet_way>.column>div>img {
+			   	height: 45px;
+				width: 45px;
+			}
+			
+			.wallet_add_account {
+				text-align: center;
+				margin-top: 15px;
+			}
+			
+			.wallet_add_account>button {
+				background-color: #2F80ED;
+				padding: 8px 17px;
+				color: #FFFFFF;
+				border-radius: 20px;
+				border: none;
+				margin-bottom: 10px;
+			}
+			
+			.wallet_add_account>button:active {
+				background-color: #2F80ED;
+			}
+			
+			.wallet_add_account img {
+				height: 20px;
+				width: 20px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="wallet_service_content">
+				<div class="wallet_title">
+					<img class="wallet_title_img" src="../images/wallet_1.png" />
+					<div class="wallet_balance_text">账户余额</div>
+					<div class="wallet_balance">￥0.00</div>
+					<div>
+						<span class="wallet_safety"><img src="../images/wallet_2.png">资金100%安全保障</span>
+					</div>
+				</div>
+				<div class="wallet_way">
+					<div class="column">
+						<div>
+							<img src="../images/wallet_3.png">
+							<div id="">充值上分</div>
+						</div>
+						<div>
+							<img src="../images/wallet_4.png">
+							<div id="">体现下分</div>
+						</div>
+					</div>
+					<div class="column">
+						<div>
+							<img src="../images/wallet_6.png">
+							<div id="">返水统计</div>
+						</div>
+						<div>
+							<img src="../images/wallet_5.png">
+							<div id="">下线转账</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wallet_add_account">
+				<button><img src="../images/wallet_7.png" />添加体现账户</button>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+	</body>
+
+</html>

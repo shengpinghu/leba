@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/home.css">
+		<link rel="stylesheet" href="../css/contact.css">
+		
+		<style>
+			html,
+			body {
+				background-color: #FFFFFF;
+			}
+			
+			.mui-content {
+				background-color: #FFFFFF;
+				
+			}
+		
+			
+			.service_header {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+				position: relative;
+				color: #FFFFFF;
+				z-index: 5;
+				padding-top: 70px;
+			}
+			
+			.service_header > div {
+				 text-align: center;
+			}
+			
+			.service_header img{
+				position: absolute;
+				height: 37px;
+				width: 46px;
+				right: 55px;
+				bottom: 30px;
+				z-index: 88;
+			}
+			
+			.service_tip {
+				padding: 20px;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+			}
+			
+			.service_tip_text {
+				font-size: 12px;
+				color: #000000;
+				position: relative;
+				height: 80px;
+				width: calc(100% - 140px);
+				padding: 10px;
+				margin-right: 20px;
+				border-radius: 10px;
+				background-color: #d2d0d5;
+				-moz-box-shadow: 0px 0px 8px 3px #f3f3f3;
+				/* 老的 Firefox */
+				box-shadow: 0px 0px 8px 3px #f3f3f3;
+			}
+			
+			.service_tip_text:after {
+				content: " ";
+				position: absolute;
+				height: 10px;
+				width: 10px;
+				top: 35px;
+				right: -5px;
+				transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				/* IE 9 */
+				-moz-transform: rotate(45deg);
+				/* Firefox */
+				-webkit-transform: rotate(45deg);
+				/* Safari 和 Chrome */
+				-o-transform: rotate(45deg);
+				bottom: -100%;
+				background: #d2d0d5;
+			}
+			
+			.service_way {
+				position: inherit;
+				z-index: 5;
+				padding: 35px 30px 0;
+				box-sizing: border-box;
+				display: flex;
+				justify-content: space-between;
+				color: #FFFFFF;
+			}
+			.service_way_img{
+				line-height: 50px;
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				background-color: #FFFFFF;
+				text-align: center;
+			}
+			.service_way_img>img{
+				vertical-align: middle;
+			}
+			.service_num {
+				z-index: 5;
+				margin: 40px 25px 10px;
+				border-radius: 8px;
+				-moz-box-shadow: 0px 0px 5px 2px #cccccc;
+				/* 老的 Firefox */
+				box-shadow: 0px 0px 5px 2px #CCCCCC;
+				
+			}
+			.mui-table-view:after{
+				background-color: transparent !important;
+			}
+			.mui-table-view:before{
+				background-color: transparent !important;
+			}
+			.mui-media-object {
+				border-radius: 50%;
+				width: 20px !important;
+				height: 20px !important;
+			}
+			.service-online{
+			    
+				border: none;
+				padding: 8px 46px;
+				color: #FFFFFF;
+				border-radius: 20px;
+				background: -webkit-linear-gradient(right, #F85B2C, #FB3A44);
+				/* Safari 5.1 - 6.0 */
+				background: -o-linear-gradient(right, #F85B2C, #FB3A44);
+				/* Opera 11.1 - 12.0 */
+				background: -moz-linear-gradient(right, #F85B2C, #FB3A44);
+				/* Firefox 3.6 - 15 */
+				background: linear-gradient(to right, #F85B2C, #FB3A44);
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="wallet_service_content">
+				<div class="service_header">
+					<img src="../images/service_1.png">
+					<div>您好，我是NG客服,</div>
+					<div>请问有什么可以帮助到您吗？</div>
+				</div>
+				<div class="service_way">
+					<div class="item">
+						<div class="service_way_img"><img src="../images/service_2.png"></div>
+						<div id="">
+							QQ客服
+						</div>
+					</div>
+					<div class="item">
+						<div class="service_way_img"><img src="../images/service_3.png"></div>
+						<div id="">
+							活动客服
+						</div>
+					</div>
+					<div class="item">
+						<div class="service_way_img"><img src="../images/service_4.png"></div>
+						<div id="">
+							代理专线
+						</div>
+					</div>
+					<div class="item">
+						<div class="service_way_img"><img src="../images/service_5.png"></div>
+						<div id="">
+							在线客服
+						</div>
+					</div>
+				</div>
+
+			
+
+			<ul class="mui-table-view service_num">
+				<li class="mui-table-view-cell mui-media">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right service_num_file" src="../images/service_7.png">
+						<div class="mui-media-body">
+							1.QQ客服：3003821000
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right service_num_file" src="../images/service_7.png">
+						<div class="mui-media-body">
+							2.活动客服：3003821000
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="javascript:;">
+						<img class="mui-media-object mui-pull-right service_num_file" src="../images/service_7.png">
+						<div class="mui-media-body">
+							3.代理专线：3003821000
+						</div>
+					</a>
+				</li>
+				<li class="mui-table-view-cell" style="text-align: center;">
+					<button type="button" class="service-online">在线客服</button>
+				</li>
+			</ul>
+			
+</div>
+		</div>
+	</body>
+	<script src="../js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+	</script>
+
+</html>

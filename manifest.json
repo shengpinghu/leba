@@ -40,6 +40,11 @@
         },"Zip":{},"File":{},"Audio":{},"Camera":{},"Device":{},"Runtime":{},"Gallery":{},"Storage":{},"Webview":{},"Barcode":{},"Uploader":{},"NativeUI":{},"Proximity":{},"Navigator":{},"NativeObj":{},"Downloader":{},"Invocation":{},"Orientation":{},"Geolocation":{},"Accelerometer":{},"XMLHttpRequest":{}
 	},
 	"plus": {
+	"launchwebview": {
+	"statusbar": {
+	    "background": "#F85B2C"
+	}
+	},
 		"splashscreen": {
 			"autoclose": true,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
 			"waiting": true
@@ -133,12 +138,24 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"pages/tab-webview-subpage-about.html"
+					"pages/tab-webview-subpage-about.html",
+					"css/home.css",
+					"images/service.png",
+					"images/home_focus.png",
+					"images/personal.png",
+					"images/wallet.png",
+					"images/wallet_focus.png",
+					"images/personal_focus.png",
+					"images/service_focus.png",
+					"images/home.png",
+					"pages/home.html"
 				],
 				"refer": [
 					"pages/tab-webview-subpage-setting.html",
 					"pages/tab-webview-subpage-contact.html",
-					"pages/tab-webview-subpage-chat.html"
+					"pages/tab-webview-subpage-chat.html",
+					"pages/service.html",
+					"pages/wallet.html"
 				],
 				"priority": 0
 			},
@@ -165,7 +182,19 @@
 					"images/btbsc.png",
 					"images/icon_scroll.png",
 					"images/icon_gift.png",
-					"images/btbffc.png"
+					"images/btbffc.png",
+					"images/home_2.png",
+					"images/home_9.png",
+					"images/home_1.png",
+					"images/home_8.png",
+					"images/home_7.png",
+					"images/home_11.png",
+					"images/home_6.png",
+					"images/home_4.png",
+					"images/home_3.png",
+					"images/home_5.png",
+					"images/home_10.png",
+					"images/home0.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -177,7 +206,9 @@
 					"js/mui.js",
 					"css/mui.css",
 					"fonts/mui.ttf",
-					"images/jndffc.png"
+					"images/jndffc.png",
+					"images/battle/battle_1.png",
+					"images/home_7.png"
 				],
 				"refer": [
 					"pages/battle.html"
@@ -186,14 +217,28 @@
 			},
 			"pages/tab-webview-subpage-setting.html": {
 				"resources": [
-					"images/zhifubao_0.png"
+					"images/zhifubao_0.png",
+					"fonts/mui.ttf",
+					"css/home.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
 			},
 			"pages/tab-webview-subpage-contact.html": {
 				"resources": [
-					"images/muwu.jpg"
+					"images/muwu.jpg",
+					"images/service_7.png",
+					"images/service_5.png",
+					"images/service_4.png",
+					"images/service_3.png",
+					"images/service_2.png",
+					"images/service_1.png",
+					"css/home.css",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/contact.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -207,7 +252,81 @@
 					"css/mui.css",
 					"images/yuyin_1.png",
 					"fonts/mui.ttf",
-					"images/60x60.gif"
+					"images/60x60.gif",
+					"images/battle/battle_7.png",
+					"images/battle/battle_6.png",
+					"images/battle/battle_3.png",
+					"images/battle/battle_10.png",
+					"images/battle/battle_8.png",
+					"images/battle/battle_4.png",
+					"images/battle/battle_5.png",
+					"images/battle/battle_9.png",
+					"images/battle/battle_2.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/tab-webview-subpage-chat.html": {
+				"resources": [
+					"images/wallet_6.png",
+					"images/wallet_3.png",
+					"images/wallet_2.png",
+					"images/wallet_5.png",
+					"images/wallet_1.png",
+					"images/wallet_7.png",
+					"images/wallet_4.png",
+					"css/home.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/service.html": {
+				"resources": [
+					"images/service_7.png",
+					"images/service_5.png",
+					"images/service_4.png",
+					"images/service_3.png",
+					"images/service_2.png",
+					"css/contact.css",
+					"images/service_1.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/home.html": {
+				"resources": [
+					"images/bg_4.png",
+					"images/home_2.png",
+					"images/home_9.png",
+					"images/bg_3.jpg",
+					"images/home_1.png",
+					"images/home_8.png",
+					"images/home_7.png",
+					"images/home_11.png",
+					"images/home0.png",
+					"images/home_6.png",
+					"images/bg_2.png",
+					"images/home_5.png",
+					"images/home_10.png",
+					"images/bg_1.png",
+					"images/home_4.png",
+					"images/home_3.png",
+					"images/bg_5.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/wallet.html": {
+				"resources": [
+					"images/wallet_6.png",
+					"images/wallet_3.png",
+					"images/wallet_2.png",
+					"images/wallet_5.png",
+					"images/wallet_1.png",
+					"images/wallet_7.png",
+					"images/wallet_4.png"
 				],
 				"refer": [],
 				"priority": 0

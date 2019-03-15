@@ -4,7 +4,7 @@
  * =====================================================
  */
 .mui-bar-nav {
-    background: #007aff !important;
+    background: linear-gradient(to right, #F85B2C, #FB3A44) !important;
 }
 .mui-bar-nav  a {
     color: #FFFFFF !important;

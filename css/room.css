@@ -1,11 +1,18 @@
+body {
+	padding: 15px;
+}
+
 .roomItem {
+	background: #FFFFFF;
+	height: 80px;
     align-items: center;
     justify-content: space-between;
     animation: typing 1s;
     display: flex;
     padding: 15px;
     color: #000;
-    border-bottom: 1px solid #C0C0C0;
+    border-left: 3px solid #F85B2C;
+    margin-bottom: 15px;
 }
 .leftContain {
     display: flex;
@@ -21,12 +28,15 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-size: 13px;
+    color: #888686;
 }
 
 .roomName {
-    font-size: 20px;
+    font-size: 18px;
     color: #000000;
     font-weight: 700;
+    margin-bottom: 10px;
 }
 
 @keyframes typing {
@@ -39,12 +49,42 @@
     }
 }
 .desc {
+	width: 65px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
     font-size: 12px;
-    color: #c0c0c0;
+    color: #888686;
+    border-radius: 10px;
+    border: 1px solid #707070;
 }
 .footerTips {
-    color: #c0c0c0;
+    color: #888686;
     font-size: 12px;
-    padding: 10px;
+    padding: 0 10px;
     text-align: center;
+}
+
+
+.setHeader{
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.setHeader > .setting {
+	height: 22px;
+	width: 22px;
+}
+
+.headerInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 15px;
+}
+.headerInfo > .number {
+	font-size: 12px;
 }

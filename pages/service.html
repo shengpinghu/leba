@@ -22,7 +22,6 @@
 				background-color: #FFFFFF;
 				
 			}
-		
 			
 			.service_header {
 				display: flex;
@@ -40,15 +39,19 @@
 				 text-align: center;
 			}
 			
-			.service_header img{
-				position: absolute;
+			.service_ng_img{
+				position: relative;
+			}
+			.service_ng_img:after{
+				content: '';
 				height: 37px;
 				width: 46px;
-				right: 55px;
-				bottom: 30px;
-				z-index: 88;
+				position: absolute;
+				background-image: url(../images/service_1.png);
+				background-size: 100%;
+				top:-30px;
 			}
-			
+				
 			.service_tip {
 				padding: 20px;
 				box-sizing: border-box;
@@ -150,9 +153,8 @@
 	<body>
 		<div class="mui-content">
 			<div class="wallet_service_content">
-				<div class="service_header">
-					<img src="../images/service_1.png">
-					<div>您好，我是NG客服,</div>
+				<div class="service_header">		
+					<div class="service_ng_img">您好，我是NG客服,</div>
 					<div>请问有什么可以帮助到您吗？</div>
 				</div>
 				<div class="service_way">

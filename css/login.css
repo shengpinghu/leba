@@ -1,0 +1,95 @@
+html,body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.login-content{
+	background-color: #E74A45;
+	height: 100%;
+}
+
+.login-head{
+	padding-top: 10px;
+	display: flex;
+	justify-content: space-around;
+	
+}
+
+.login-head>.btn{
+	font-size: 14px;
+	flex-direction: column;
+	padding: 3px 8px;
+	color: #FFFFFF;
+	background-color: rgba(255,255,255,0.3);
+	border-radius: 20px;
+}
+
+.login-txt{
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	margin: 90px 15px 0;
+	padding: 50px 20px 20px;
+	position: relative;
+	
+}
+
+.login-txt:before{
+	content: '';
+	height: 80px;
+	width: 80px;
+	position: absolute;
+	border-radius: 50%;
+	background-image: url(../images/60x60.gif);
+	transform: translate(-50%,50%);
+	top: -90px;
+	left: 50%;
+}
+
+.login-txt>.mui-input-row{
+	border-bottom: 1px solid #F85B2C;
+}
+/*.login-txt .mui-input-row:after{
+	content: '';
+	position: absolute;
+	height: 1px;
+	right: 0px;
+	left: 0px;
+	bottom: 0;
+	background-color: #F85B2C;
+}*/
+ .login-txt .mui-input-row .mui-input-password~.mui-icon-eye{
+ 	/*right: 10px;*/
+ }
+.login-txt .mui-input-row label{
+	padding-left: 0px;
+}
+.login-btn{
+	color: #FFFFFF;
+	border-radius: 15px;
+	border: none;
+	margin: 35px 0px 25px;
+	font-size: 19px;
+	background: linear-gradient(#FB3A44,#F85B2C);
+	width: 100%;
+}
+
+.login-way{
+	display: flex;
+	justify-content: space-between;
+}
+.login-way>div{
+	flex-direction: column;
+	color: #888686;
+	font-size: 13px;
+}
+.login-way>div:nth-child(2){
+	color: #FB3A44;
+}
+
+.login-way > div>input{
+	height: 15px;
+    width: 15px;
+    vertical-align: middle;
+    margin-right: 5px;
+}

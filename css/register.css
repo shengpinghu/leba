@@ -1,0 +1,66 @@
+html,body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.register-content{
+	background-color: #E74A45;
+	height: 100%;
+}
+.register-txt{
+	padding: 20px;
+}
+
+.register-txt .register-txt-group{
+	display: flex;
+	color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	font-size:15px;
+}
+.register-txt-group input{
+	border: none;
+	background-color: transparent;
+	margin-bottom: 0;
+	flex-direction: column;
+	height: 55px;
+}
+.register-txt-group label{
+	flex-direction: column;
+	padding: 16px 0;
+	width: 90px;	
+	flex-shrink: 0;
+}
+.register-txt-group span{
+	font-size: 12px;
+	flex-direction: column;
+	flex-shrink: 0;
+	margin: 10px 0;
+	background: linear-gradient(#FB3A44,#F85B2C);
+	padding: 7px 9px;
+	border-radius: 5px;
+}
+::-webkit-input-placeholder{
+	color: rgba(255,255,255,0.5);
+}
+
+.register-btn{
+	color: #FFFFFF;
+	border-radius: 15px;
+	border: none;
+	margin: 35px 0px 25px;
+	font-size: 19px;
+	background: linear-gradient(#FB3A44,#F85B2C);
+	width: 100%;
+}
+.register-way{
+	color: #FFFFFF;
+	width: 100%;
+	font-size: 12px;
+	text-align: center;
+}
+
+.register-way label{
+	color: #FB3A44;
+	margin-left: 5px;
+}

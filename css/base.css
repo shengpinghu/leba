@@ -1,0 +1,12 @@
+.setHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 18px;
+}
+.title {
+    flex: 1;
+    text-align: center;
+    font-size: 18px;
+}

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/base.css" rel="stylesheet" />
+		<link href="../css/addAccount.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav setHeader">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="title">下注记录</div>
+		</header>
+		<div class="mui-content addAccountMain">
+			<img class="guard" src="../images/account/account_1.png" />
+			<div class="password">
+				密码安全保障
+			</div>
+			<div class="tips">
+				xx娱乐保证您的资金和隐身安全
+			</div>
+			<div class="tab">
+				<div class="type" :class="activeTab == 0 ? 'activeTab': ''" @click="changeType(0)">
+					支付宝提现
+				</div>
+				<div class="type" :class="activeTab == 1 ? 'activeTab': 'type'" @click="changeType(1)">
+					银行卡提现
+				</div>
+			</div>
+
+			<div class="input">
+				<img src="../images/account/account_2.png" />
+				<input type="text" placeholder="请输入收款人姓名（绑定后不可更改）">
+			</div>
+			<div class="input">
+				<img src="../images/account/account_3.png" />
+				<input type="text" placeholder="请输入提现账号">
+			</div>
+			<div class="btn-gradient">确认提现</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script type="text/javascript">
+		mui.init();
+		var app = new Vue({
+				el: '.addAccountMain',
+				data: {
+					activeTab: 0
+				},
+				methods:{
+					changeType(index) {
+						this.activeTab = index
+					}
+				}
+		})
+		</script>
+	</body>
+
+</html>

@@ -17,14 +17,14 @@
 				<div class="personal-connect">
 
 					<div class="personal-phone">
-						<div class="personal-img">
-							<!--<img src="../images/60x60.gif">--></div>
+			
+							<img  class="personal-img" src="../images/personal/personal_1.png" />
 						<div class="personal-phone-item">
-							<img src="../images/60x60.gif" />
+							<img src="../images/personal/personal_2.png" />
 							<div>12345678910</div>
 						</div>
 						<div class="personal-phone-item">
-							<img src="../images/60x60.gif" />
+							<img src="../images/personal/personal_3.png" />
 							<div>UID-61311</div>
 						</div>
 					</div>
@@ -32,47 +32,53 @@
 
 			</div>
 			<div class="personal-list">
-				<a href="room.html" class="personal-list-item">
+				<div href="history.html" class="personal-list-item">
 					<div class="personal-left-item">
-						<img class="" src="../images/zhifubao_0.png">
+						<img src="../images/personal/personal_4.png" />
 						<div class="">下注记录</div>
 					</div>
 					<span class="mui-icon mui-icon-arrowright"></span>
-				</a>
-				<a class="personal-list-item">
+				</div>
+				<div class="personal-list-item" href="money.html">
 					<div class="personal-left-item">
-						<img class="" src="../images/zhifubao_0.png">
+						<img src="../images/personal/personal_5.png" />
 						<div class="">推广中心</div>
 					</div>
 					<span class="mui-icon mui-icon-arrowright"></span>
-				</a>
-				<a class="personal-list-item">
+				</div>
+				<div class="personal-list-item">
 					<div class="personal-left-item">
-						<img class="" src="../images/zhifubao_0.png">
+						<img src="../images/personal/personal_6.png" />
 						<div class="">代理制度</div>
 					</div>
 					<span class="mui-icon mui-icon-arrowright"></span>
-				</a>
-				<a class="personal-list-item">
+				</div>
+				<div class="personal-list-item">
 					<div class="personal-left-item">
-						<img class="" src="../images/zhifubao_0.png">
+						<img src="../images/personal/personal_7.png" />
 						<div class="">密码安全</div>
 					</div>
 					<span class="mui-icon mui-icon-arrowright"></span>
 				</div>
-				<a class="personal-list-item">
-					<div class="personal-left-item">
-						<img class="" src="../images/zhifubao_0.png">
+				<div class="personal-list-item" href="addAccount.html">
+					<div class="personal-left-item" href="addAccount.html">
+						<img src="../images/personal/personal_8.png" />
 						<div class="">设置</div>
 					</div>
 					<span class="mui-icon mui-icon-arrowright"></span>
-				</a>
+				</div>
 			</div>		
 		</div>
 
 		<script src="../js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			mui('.personal-list').on('tap', '.personal-list-item', function(e) {
+				var targetTab = this.getAttribute('href');
+				mui.openWindow({
+					url: targetTab
+				})
+			})
 		</script>
 	</body>
 

@@ -26,6 +26,7 @@ html,body{
 }
 
 .login-txt{
+	z-index: 3;
 	background-color: #FFFFFF;
 	border-radius: 10px;
 	margin: 90px 15px 0;
@@ -33,8 +34,18 @@ html,body{
 	position: relative;
 	
 }
-
-.login-txt:before{
+.login-txt-img{
+	position: absolute;
+	height: 80px;
+	width: 80px;
+	transform: translate(-50%,50%);
+	top: -90px;
+	left: 50%;
+	/*background-color: #FFFFFF;*/
+	border-radius: 50%;
+	/*box-shadow: 1px 1px 5px 3px #FFEEED;*/
+}
+/*.login-txt:before{
 	content: '';
 	height: 80px;
 	width: 80px;
@@ -44,10 +55,11 @@ html,body{
 	transform: translate(-50%,50%);
 	top: -90px;
 	left: 50%;
-}
+}*/
 
 .login-txt>.mui-input-row{
 	border-bottom: 1px solid #F85B2C;
+	margin-bottom: 10px;
 }
 /*.login-txt .mui-input-row:after{
 	content: '';
@@ -63,10 +75,16 @@ html,body{
  }
 .login-txt .mui-input-row label{
 	padding-left: 0px;
+	font-size: 15px;
+	color: #333333;
 }
 .login-btn{
+	display: block;
+	text-align: center;
+	height: 45px;
+	line-height: 45px;
 	color: #FFFFFF;
-	border-radius: 15px;
+	border-radius: 23px;
 	border: none;
 	margin: 35px 0px 25px;
 	font-size: 19px;
@@ -92,4 +110,14 @@ html,body{
     width: 15px;
     vertical-align: middle;
     margin-right: 5px;
+}
+.bottomPic {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	z-index: 1;
+}
+.register {
+	color: #FB3A44;
+	font-size: 13px;
 }

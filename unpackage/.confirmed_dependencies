@@ -1,193 +1,290 @@
 {
-  "index.html": {
-    "resources": [
-      "js/mui.min.js",
-      "fonts/mui.ttf",
-      "css/mui.min.css",
-      "pages/tab-webview-subpage-about.html",
-      "css/home.css",
-      "images/service.png",
-      "images/home_focus.png",
-      "images/personal.png",
-      "images/wallet.png",
-      "images/wallet_focus.png",
-      "images/personal_focus.png",
-      "images/service_focus.png",
-      "images/home.png",
-      "pages/home.html"
-    ],
-    "refer": [
-      "pages/tab-webview-subpage-setting.html",
-      "pages/tab-webview-subpage-contact.html",
-      "pages/tab-webview-subpage-chat.html",
-      "pages/tab-webview-subpage-about.html",
-      "pages/service.html",
-      "pages/wallet.html"
-    ]
-  },
-  "pages/tab-webview-subpage-about.html": {
-    "resources": [
-      "css/home.css",
-      "images/cbd.jpg",
-      "images/muwu.jpg",
-      "images/yuantiao.jpg",
-      "images/60x60.gif",
-      "images/shuijiao.jpg",
-      "css/mui.min.css",
-      "pages/room.html",
-      "js/mui.min.js",
-      "images/bg_4.png",
-      "images/bg_2.png",
-      "images/bg_3.jpg",
-      "images/bg_1.png",
-      "images/bg_5.png",
-      "images/pic_cq28.png",
-      "images/pic_jndx28.png",
-      "images/jndffc.png",
-      "images/icon_trends.png",
-      "images/btbsc.png",
-      "images/icon_scroll.png",
-      "images/icon_gift.png",
-      "images/btbffc.png",
-      "images/home_2.png",
-      "images/home_9.png",
-      "images/home_1.png",
-      "images/home_8.png",
-      "images/home_7.png",
-      "images/home_11.png",
-      "images/home_6.png",
-      "images/home_4.png",
-      "images/home_3.png",
-      "images/home_5.png",
-      "images/home_10.png",
-      "images/home0.png"
-    ],
-    "refer": [
-      "pages/room.html"
-    ]
-  },
-  "pages/room.html": {
-    "resources": [
-      "css/room.css",
-      "images/60x60.gif",
-      "js/mui.js",
-      "css/mui.css",
-      "fonts/mui.ttf",
-      "images/jndffc.png",
-      "images/battle/battle_1.png",
-      "images/home_7.png"
-    ],
-    "refer": [
-      "pages/battle.html"
-    ]
-  },
-  "pages/tab-webview-subpage-setting.html": {
-    "resources": [
-      "images/zhifubao_0.png",
-      "fonts/mui.ttf",
-      "css/home.css",
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "pages/tab-webview-subpage-contact.html": {
-    "resources": [
-      "images/muwu.jpg",
-      "images/service_7.png",
-      "images/service_5.png",
-      "images/service_4.png",
-      "images/service_3.png",
-      "images/service_2.png",
-      "images/service_1.png",
-      "css/home.css",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "css/contact.css"
-    ],
-    "refer": []
-  },
-  "pages/battle.html": {
-    "resources": [
-      "css/battle.css",
-      "images/yuantiao.jpg",
-      "images/xyft.png",
-      "js/mui.js",
-      "css/mui.css",
-      "images/yuyin_1.png",
-      "fonts/mui.ttf",
-      "images/60x60.gif",
-      "images/battle/battle_7.png",
-      "images/battle/battle_6.png",
-      "images/battle/battle_3.png",
-      "images/battle/battle_10.png",
-      "images/battle/battle_8.png",
-      "images/battle/battle_4.png",
-      "images/battle/battle_5.png",
-      "images/battle/battle_9.png",
-      "images/battle/battle_2.png"
-    ],
-    "refer": []
-  },
-  "pages/tab-webview-subpage-chat.html": {
-    "resources": [
-      "images/wallet_6.png",
-      "images/wallet_3.png",
-      "images/wallet_2.png",
-      "images/wallet_5.png",
-      "images/wallet_1.png",
-      "images/wallet_7.png",
-      "images/wallet_4.png",
-      "css/home.css",
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "pages/service.html": {
-    "resources": [
-      "images/service_7.png",
-      "images/service_5.png",
-      "images/service_4.png",
-      "images/service_3.png",
-      "images/service_2.png",
-      "css/contact.css",
-      "images/service_1.png"
-    ],
-    "refer": []
-  },
-  "pages/home.html": {
-    "resources": [
-      "images/bg_4.png",
-      "images/home_2.png",
-      "images/home_9.png",
-      "images/bg_3.jpg",
-      "images/home_1.png",
-      "images/home_8.png",
-      "images/home_7.png",
-      "images/home_11.png",
-      "images/home0.png",
-      "images/home_6.png",
-      "images/bg_2.png",
-      "images/home_5.png",
-      "images/home_10.png",
-      "images/bg_1.png",
-      "images/home_4.png",
-      "images/home_3.png",
-      "images/bg_5.png"
-    ],
-    "refer": []
-  },
-  "pages/wallet.html": {
-    "resources": [
-      "images/wallet_6.png",
-      "images/wallet_3.png",
-      "images/wallet_2.png",
-      "images/wallet_5.png",
-      "images/wallet_1.png",
-      "images/wallet_7.png",
-      "images/wallet_4.png"
-    ],
-    "refer": []
-  }
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"pages/tab-webview-subpage-about.html",
+			"css/home.css",
+			"images/service.png",
+			"images/home_focus.png",
+			"images/personal.png",
+			"images/wallet.png",
+			"images/wallet_focus.png",
+			"images/personal_focus.png",
+			"images/service_focus.png",
+			"images/home.png",
+			"pages/home.html",
+			"pages/login.html",
+			"images/headPerson.png"
+		],
+		"refer": [
+			"pages/tab-webview-subpage-setting.html",
+			"pages/tab-webview-subpage-contact.html",
+			"pages/tab-webview-subpage-chat.html",
+			"pages/tab-webview-subpage-about.html",
+			"pages/service.html",
+			"pages/wallet.html",
+			"pages/personal.html",
+			"pages/home.html"
+		]
+	},
+	"pages/tab-webview-subpage-about.html": {
+		"resources": [
+			"css/home.css",
+			"images/cbd.jpg",
+			"images/muwu.jpg",
+			"images/yuantiao.jpg",
+			"images/60x60.gif",
+			"images/shuijiao.jpg",
+			"css/mui.min.css",
+			"pages/room.html",
+			"js/mui.min.js",
+			"images/bg_4.png",
+			"images/bg_2.png",
+			"images/bg_3.jpg",
+			"images/bg_1.png",
+			"images/bg_5.png",
+			"images/pic_cq28.png",
+			"images/pic_jndx28.png",
+			"images/jndffc.png",
+			"images/icon_trends.png",
+			"images/btbsc.png",
+			"images/icon_scroll.png",
+			"images/icon_gift.png",
+			"images/btbffc.png",
+			"images/home_2.png",
+			"images/home_9.png",
+			"images/home_1.png",
+			"images/home_8.png",
+			"images/home_7.png",
+			"images/home_11.png",
+			"images/home_6.png",
+			"images/home_4.png",
+			"images/home_3.png",
+			"images/home_5.png",
+			"images/home_10.png",
+			"images/home0.png"
+		],
+		"refer": [
+			"pages/room.html"
+		]
+	},
+	"pages/room.html": {
+		"resources": [
+			"css/room.css",
+			"images/60x60.gif",
+			"js/mui.js",
+			"css/mui.css",
+			"fonts/mui.ttf",
+			"images/jndffc.png",
+			"images/battle/battle_1.png",
+			"images/home_7.png"
+		],
+		"refer": [
+			"pages/battle.html"
+		]
+	},
+	"pages/tab-webview-subpage-setting.html": {
+		"resources": [
+			"images/zhifubao_0.png",
+			"fonts/mui.ttf",
+			"css/home.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"pages/tab-webview-subpage-contact.html": {
+		"resources": [
+			"images/muwu.jpg",
+			"images/service_7.png",
+			"images/service_5.png",
+			"images/service_4.png",
+			"images/service_3.png",
+			"images/service_2.png",
+			"images/service_1.png",
+			"css/home.css",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/contact.css"
+		],
+		"refer": []
+	},
+	"pages/battle.html": {
+		"resources": [
+			"css/battle.css",
+			"images/yuantiao.jpg",
+			"images/xyft.png",
+			"js/mui.js",
+			"css/mui.css",
+			"images/yuyin_1.png",
+			"fonts/mui.ttf",
+			"images/60x60.gif",
+			"images/battle/battle_7.png",
+			"images/battle/battle_6.png",
+			"images/battle/battle_3.png",
+			"images/battle/battle_10.png",
+			"images/battle/battle_8.png",
+			"images/battle/battle_4.png",
+			"images/battle/battle_5.png",
+			"images/battle/battle_9.png",
+			"images/battle/battle_2.png"
+		],
+		"refer": []
+	},
+	"pages/tab-webview-subpage-chat.html": {
+		"resources": [
+			"images/wallet_6.png",
+			"images/wallet_3.png",
+			"images/wallet_2.png",
+			"images/wallet_5.png",
+			"images/wallet_1.png",
+			"images/wallet_7.png",
+			"images/wallet_4.png",
+			"css/home.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"pages/service.html": {
+		"resources": [
+			"images/service_7.png",
+			"images/service_5.png",
+			"images/service_4.png",
+			"images/service_3.png",
+			"images/service_2.png",
+			"css/contact.css",
+			"images/service_1.png",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"pages/home.html": {
+		"resources": [
+			"images/bg_4.png",
+			"images/home_2.png",
+			"images/home_9.png",
+			"images/bg_3.jpg",
+			"images/home_1.png",
+			"images/home_8.png",
+			"images/home_7.png",
+			"images/home_11.png",
+			"images/home0.png",
+			"images/home_6.png",
+			"images/bg_2.png",
+			"images/home_5.png",
+			"images/home_10.png",
+			"images/bg_1.png",
+			"images/home_4.png",
+			"images/home_3.png",
+			"images/bg_5.png",
+			"css/home.css",
+			"css/mui.min.css",
+			"js/mui.min.js"
+		],
+		"refer": []
+	},
+	"pages/wallet.html": {
+		"resources": [
+			"images/wallet_6.png",
+			"images/wallet_3.png",
+			"images/wallet_2.png",
+			"images/wallet_5.png",
+			"images/wallet_1.png",
+			"images/wallet_7.png",
+			"images/wallet_4.png",
+			"css/home.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"pages/login.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/login.css",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"images/login/� 65.png",
+			"images/personal/personal_1.png",
+			"images/login/� 65.png",
+			"index.html",
+			"images/login/back.png",
+			"pages/register.html"
+		],
+		"refer": [
+			"index.html"
+		]
+	},
+	"pages/personal.html": {
+		"resources": [
+			"images/personal/personal_6.png",
+			"images/personal/personal_4.png",
+			"images/personal/personal_5.png",
+			"css/personal.css",
+			"images/personal/personal_7.png",
+			"images/personal/personBck.png",
+			"images/personal/personal_8.png",
+			"images/personal/personal_3.png",
+			"pages/history.html",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"pages/addAccount.html",
+			"fonts/mui.ttf",
+			"images/personal/personal_1.png"
+		],
+		"refer": [
+			"pages/money.html"
+		]
+	},
+	"pages/register.html": {
+		"resources": [
+			"images/back.png",
+			"css/base.css",
+			"css/register.css",
+			"css/mui.css",
+			"js/mui.min.js",
+			"pages/login.html",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"pages/history.html": {
+		"resources": [
+			"css/base.css",
+			"js/mui.picker.min.js",
+			"js/mui.js",
+			"css/mui.picker.min.css",
+			"css/history.css",
+			"css/mui.css",
+			"fonts/mui.ttf"
+		],
+		"refer": []
+	},
+	"pages/addAccount.html": {
+		"resources": [
+			"images/account/account_2.png",
+			"css/base.css",
+			"css/addAccount.css",
+			"images/account/account_1.png",
+			"css/mui.css",
+			"images/account/account_3.png",
+			"fonts/mui.ttf",
+			"js/mui.min.js"
+		],
+		"refer": []
+	},
+	"pages/money.html": {
+		"resources": [
+			"css/money.css",
+			"css/base.css",
+			"fonts/mui.ttf",
+			"js/mui.js",
+			"css/mui.css"
+		],
+		"refer": []
+	}
 }

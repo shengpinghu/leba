@@ -1,0 +1,93 @@
+html, body, .addAccountMain {
+	background-color: #FFFFFF;
+	min-height: 100%;
+}
+
+.addAccountMain {
+	padding: 0 36px;
+}
+.guard {
+	display: block;
+	margin: 18px auto;
+	height: 83px;
+}
+.password {
+	color: #FB3A44;
+	font-size: 24px;
+	text-align: center;
+	margin: 20px auto 13px;
+}
+
+.tips {
+	font-size: 15px;
+	text-align: center;
+}
+.tab {
+	margin: 22px auto 30px;
+	display: flex;
+	width: 210px;
+	height: 35px;
+	align-items: center;
+	font-size: 15px;
+	color: #000000;
+}
+
+.type {
+	border: 1px solid #FB3A44;
+	height: 100%;
+	line-height: 35px;
+	flex: 1;
+	text-align: center;
+	border-radius: 0 8px 8px 0;
+}
+.type:first-of-type {
+	border-radius: 8px 0 0 8px;
+}
+
+.activeTab {
+	background-color: #FB3A44;
+	color: #FFFFFF;
+	border: none;
+}
+
+
+.input {
+    display: flex;
+    color: #FB3A44;
+    font-size: 14px;
+    align-items: center;
+    border-bottom: 1px solid #F85B2C;
+    padding: 0 0 5px;
+    margin-bottom: 10px;
+}
+
+.input > input {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    border: none;
+    background: transparent;
+}
+
+.input > img {
+	height: 20px;
+	width: 20px;
+	margin: 0 10px;
+}
+
+::-webkit-input-placeholder {
+    color: #888686;
+    font-size: 15px;
+}
+
+.btn-gradient {
+    width: 305px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background: linear-gradient(to right, #FB3A44, #F85B2C);
+    border-radius: 23px;
+    color: #ffffff;
+    font-size: 19px;
+    margin: 40px auto;
+}

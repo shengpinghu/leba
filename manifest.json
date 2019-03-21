@@ -10,7 +10,7 @@
 	"icons": {
 		"72": "icon.png"
 	},
-	"launch_path": "index.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"launch_path": "/pages/login.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
 	"developer": {
 		"name": "",/*开发者名称*/
 		"email": "",/*开发者邮箱地址*/
@@ -148,14 +148,17 @@
 					"images/personal_focus.png",
 					"images/service_focus.png",
 					"images/home.png",
-					"pages/home.html"
+					"pages/home.html",
+					"pages/login.html",
+					"images/headPerson.png"
 				],
 				"refer": [
 					"pages/tab-webview-subpage-setting.html",
 					"pages/tab-webview-subpage-contact.html",
 					"pages/tab-webview-subpage-chat.html",
 					"pages/service.html",
-					"pages/wallet.html"
+					"pages/wallet.html",
+					"pages/personal.html"
 				],
 				"priority": 0
 			},
@@ -290,7 +293,9 @@
 					"images/service_3.png",
 					"images/service_2.png",
 					"css/contact.css",
-					"images/service_1.png"
+					"images/service_1.png",
+					"js/mui.min.js",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -313,7 +318,10 @@
 					"images/bg_1.png",
 					"images/home_4.png",
 					"images/home_3.png",
-					"images/bg_5.png"
+					"images/bg_5.png",
+					"css/home.css",
+					"css/mui.min.css",
+					"js/mui.min.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -326,7 +334,98 @@
 					"images/wallet_5.png",
 					"images/wallet_1.png",
 					"images/wallet_7.png",
-					"images/wallet_4.png"
+					"images/wallet_4.png",
+					"css/home.css",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/login.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/login.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/login/组 65.png",
+					"images/personal/personal_1.png",
+					"index.html",
+					"images/login/back.png",
+					"pages/register.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/personal.html": {
+				"resources": [
+					"images/personal/personal_6.png",
+					"images/personal/personal_4.png",
+					"images/personal/personal_5.png",
+					"css/personal.css",
+					"images/personal/personal_7.png",
+					"images/personal/personBck.png",
+					"images/personal/personal_8.png",
+					"images/personal/personal_3.png",
+					"pages/history.html",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"pages/addAccount.html",
+					"fonts/mui.ttf",
+					"images/personal/personal_1.png"
+				],
+				"refer": [
+					"pages/money.html"
+				],
+				"priority": 0
+			},
+			"pages/register.html": {
+				"resources": [
+					"images/back.png",
+					"css/base.css",
+					"css/register.css",
+					"css/mui.css",
+					"js/mui.min.js",
+					"pages/login.html",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/history.html": {
+				"resources": [
+					"css/base.css",
+					"js/mui.picker.min.js",
+					"js/mui.js",
+					"css/mui.picker.min.css",
+					"css/history.css",
+					"css/mui.css",
+					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/addAccount.html": {
+				"resources": [
+					"images/account/account_2.png",
+					"css/base.css",
+					"css/addAccount.css",
+					"images/account/account_1.png",
+					"css/mui.css",
+					"images/account/account_3.png",
+					"fonts/mui.ttf",
+					"js/mui.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"pages/money.html": {
+				"resources": [
+					"css/money.css",
+					"css/base.css",
+					"fonts/mui.ttf",
+					"js/mui.js",
+					"css/mui.css"
 				],
 				"refer": [],
 				"priority": 0

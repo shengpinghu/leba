@@ -8,8 +8,10 @@ html,body{
 .personal-head{
 	position: relative;
 	height: 190px;
-	background: linear-gradient(#FB3A44,#F85B2C);
+	background: url(../images/personal/personBck.png);
 	padding-top: 30px;
+	background-position: center center;
+    background-size: cover;
 }
 .personal-name{
 	color: #FFFFFF;
@@ -38,12 +40,12 @@ html,body{
 	height: 80px;
 	width: 80px;
 	border-radius: 50%;
-	background-color: #FFFFFF;
+/*	background-color: #FFFFFF;*/
 	position: absolute;
 	top: 0;
 	left: 50%;
-	transform: translate(-50%,-68%);
-	box-shadow: 1px 1px 5px 3px #FFEEED;
+	transform: translate(-50%,-60%);
+	/*box-shadow: 1px 1px 5px 3px #FFEEED;*/
 	
 }
 

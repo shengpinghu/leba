@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8">
 		<title>Hello MUI</title>
@@ -10,6 +11,7 @@
 		<link rel="stylesheet" href="../css/mui.min.css">
 		<link rel="stylesheet" href="../css/home.css">
 	</head>
+
 	<body>
 		<div class="mui-content">
 			<!-- <header class="mui-bar mui-bar-nav">
@@ -63,10 +65,8 @@
 			</div>
 			<div class="marquee">
 				<img src="../images/home0.png" alt="">
-				<marquee direction="left"
-						 height="20"
-						 behavior="scroll">
-					金风玉露一相逢, 便胜却人间无数. 两情若是久长时, 又岂在朝朝暮暮.<br>
+				<marquee direction="left" height="20" behavior="scroll">
+					{{messageList[0].content}}
 				</marquee>
 			</div>
 			<div class="contain">
@@ -101,21 +101,21 @@
 					<span>热门游戏</span>
 				</div>
 				<div class="gameList">
-					<div class="gameItem">
+					<!--<div class="gameItem">
 						<img src="../images/home_6.png">
 						<div class="introduce">
 							<span>幸运28</span>
 							<span class="hasPerson">有<span class='personNum'>1234</span>人在玩</span>
 						</div>
-					</div>
-					<div class="gameItem">
+					</div>-->
+					<div class="gameItem" v-for="item in gameList" @click="openRoom(item.gameId)">
 						<img src="../images/home_7.png">
 						<div class="introduce">
-							<span>加拿大28</span>
+							<span v-text="item.name">加拿大</span>
 							<span class="hasPerson">有<span class='personNum'>1234</span>人在玩</span>
 						</div>
 					</div>
-					<div class="gameItem">
+					<!--<div class="gameItem">
 						<img src="../images/home_8.png">
 						<div class="introduce">
 							<span>超级大乐透</span>
@@ -142,24 +142,70 @@
 							<span>快乐10分</span>
 							<span class="hasPerson">有<span class='personNum'>1234</span>人在玩</span>
 						</div>
-					</div>
+					</div>-->
 				</div>
 
 			</div>
 		</div>
 	</body>
 	<script src="../js/mui.min.js"></script>
-	<script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/layer/layer.js"></script>
+	<script type="text/javascript">
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
-		document.querySelector('.gameItem').addEventListener('tap', function(){
-			mui.openWindow({
-				url:'room.html'
+		var app = new Vue({
+				el: '.mui-content',
+				data: {
+					gameList: [],
+					messageList: [],
+					message: ''
+				},
+				mounted() {
+					httpRequest({
+						url: 'api/game',
+					}).then(res => {
+						this.gameList = res.data
+					}).catch(err => {
+						mui.toast(err.msg || '登陆错误');
+					})
+					httpRequest({
+						url: 'api/message',
+					}).then(res => {
+						this.messageList = res.data
+						layer.open({
+							title: res.data[0].title,
+							content: res.data[0].content,
+						})
+					}).catch(err => {
+						mui.toast(err.msg || '登陆错误');
+					})
+				},
+				methods: {
+					openRoom: function(gameId) {
+						mui.openWindow({
+							url: 'room.html',
+							extras: {
+								gameId
+							}
+						})
+					}
+				}
 			})
-		})
+			//		document.querySelector('.gameItem').addEventListener('tap', function() {
+			//			mui.openWindow({
+			//				url: 'room.html',
+			//				extras: {
+			//					gameId:
+			//				}
+			//			})
+			//		})
 		var slider = mui("#slider").slider({
 			interval: 1000
 		});
 	</script>
+
 </html>

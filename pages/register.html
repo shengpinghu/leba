@@ -17,7 +17,7 @@
 		</header>
 		<div class="mui-content register-content">
 			<div class="register-txt">
-				<div class="register-txt-group">
+				<!--<div class="register-txt-group">
 					<label>手机号</label>
 					<input type="text" placeholder="请输入手机号">
 				</div>
@@ -25,34 +25,79 @@
 					<label>验证码</label>
 					<input type="text" placeholder="请输入验证码">
 					<span class="register-code">获取验证码</span>
+				</div>-->
+				<div class="register-txt-group">
+					<label>用户名</label>
+					<input type="text" placeholder="请输入用户名" v-model="user.account">
 				</div>
 				<div class="register-txt-group">
 					<label>密码</label>
-					<input type="password" placeholder="请输入密码">
+					<input type="password" placeholder="请输入密码" v-model="user.password">
 				</div>
 				<div class="register-txt-group">
 					<label>确认密码</label>
-					<input type="password" placeholder="请输入确认密码">
+					<input type="password" placeholder="请输入确认密码" v-model="passwordConfirm">
 				</div>
 				<div class="register-txt-group">
 					<label>昵称</label>
-					<input placeholder="请输入昵称" type="text">
+					<input placeholder="请输入昵称" type="text" v-model="user.name">
 				</div>
 				<div class="register-txt-group">
 					<label>推荐人(选填)</label>
-					<input placeholder="请输入推荐人UID" type="text">
+					<input placeholder="请输入推荐人UID" type="text" v-model="user.inviteUser">
 				</div>
-				<button class="register-btn">注册</button>
+				<button class="register-btn" @click="register">注册</button>
 				<div class="register-way">
-					<div>已经有账号了？<label>点击登录</label></div>
+					<div>已经有账号了？<label @click="back">点击登录</label></div>
 				</div>
 			</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="../js/utils.js"></script>
 		<script type="text/javascript">
-			mui.init()
-			mui.plusReady(function() {
-				 	plus.navigator.setStatusBarBackground("#F85B2C");})
+			var app = new Vue({
+						el: '.register-content',
+						data: {
+							user:{
+								account: '',
+								password: '',
+								name: '',
+								inviteUser: '',
+								mobile: ''
+							},
+							passwordConfirm: ''
+							
+						},
+						methods: {
+							register: function() {
+								if(this.user.password !== this.passwordConfirm) {
+									mui.toast('两次密码不一致！')
+								}
+								if(this.user.inviteUser.trim() != '') {
+									this.user.inviteUser = Number(this.user.inviteUser);
+								}else{
+									delete this.user.inviteUser
+								}
+								httpRequest({
+									url: 'register',
+									type: 'POST',
+									data:this.user
+								}).then(res => {
+									location.replace("login.html");
+								}).catch(err => {
+									mui.toast(err.msg || '注册失败请重试~！');
+								})
+							},
+							back: function() {
+								location.replace('login.html');
+							}
+						}
+				})
+						mui.init()
+						mui.plusReady(function() {
+							plus.navigator.setStatusBarBackground("#F85B2C");
+						})
 		</script>
 	</body>
 

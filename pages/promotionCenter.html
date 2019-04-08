@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link href="../css/mui.min.css" rel="stylesheet" />
+    <link href="../css/promotionCenter.css" rel="stylesheet" />
+    <style>
+        .personal-head {
+
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="personal-content">
+    <div class="personal-head">
+        <div class="personal-name">昨日提成</div>
+        <div class="money">0</div>
+        <div class="record">总提成：0</div>
+    </div>
+    <div class="personal-list">
+        <div href="promotion.html" class="personal-list-item">
+            <div class="personal-left-item">
+                <img src="../images/personal/personal_4.png" />
+                <div>推广链接</div>
+            </div>
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+        <div class="personal-list-item" href="money.html">
+            <div class="personal-left-item">
+                <img src="../images/personal/personal_5.png" />
+                <div class="">下线记录</div>
+            </div>
+            <span class="mui-icon mui-icon-arrowright"></span>
+        </div>
+    </div>
+</div>
+
+<script src="../js/mui.min.js"></script>
+<script type="text/javascript">
+    mui.init()
+    mui('.personal-list').on('tap', '.personal-list-item', function(e) {
+        var targetTab = this.getAttribute('href');
+        mui.openWindow({
+            url: targetTab
+        })
+    })
+</script>
+</body>
+
+</html>

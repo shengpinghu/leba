@@ -1,87 +1,84 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-    <link href="../css/mui.css" rel="stylesheet"/>
-    <link href="../css/room.css" rel="stylesheet"/>
-</head>
 
-<body>
-<header class="mui-bar mui-bar-nav setHeader">
-    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <div class="headerInfo">
-    	<div>NG加拿大28</div>
-    	<div class="number">有715人在玩</div>
-    </div>
-    <img class="setting" src="../images/battle/battle_1.png"/>
-</header>
-<div class="roomList mui-content">
-    <div class="roomItem">
-        <div class="leftContain">
-            <img src="../images/home_7.png">
-            <div class="info">
-                <div class="roomName">
-                    NG加拿大2.8
-                </div>
-                <div>
-                    一下之间: 大,单：5
-                </div>
-            </div>
-        </div>
-        <div class="desc">
-            赔率说明
-        </div>
-    </div>
-    <div class="roomItem">
-        <div class="leftContain">
-            <img src="../images/home_7.png">
-            <div class="info">
-                <div class="roomName">
-                    NG加拿大2.8
-                </div>
-                <div>
-                    一下之间: 大,单：5
-                </div>
-            </div>
-        </div>
-        <div class="desc">
-            赔率说明
-        </div>
-    </div>
-    <div class="roomItem">
-        <div class="leftContain">
-            <img src="../images/home_7.png">
-            <div class="info">
-                <div class="roomName">
-                    NG加拿大2.8
-                </div>
-                <div>
-                    一下之间: 大,单：5
-                </div>
-            </div>
-        </div>
-        <div class="desc">
-            赔率说明
-        </div>
-    </div>
-    <div class="footerTips">
-        加拿大28，根据开奖结果,游戏时间9：00-3：55，每五分钟一期
-    </div>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/room.css" rel="stylesheet" />
+	</head>
 
+	<body>
+		<header class="mui-bar mui-bar-nav setHeader">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<div class="headerInfo">
+				<div>NG加拿大28</div>
+				<div class="number">有715人在玩</div>
+			</div>
+			<img class="setting" src="../images/battle/battle_1.png" />
+		</header>
+		<div class="roomList mui-content">
+			<div class="roomItem" v-for="item in roomObj">
+				<div class="leftContain" @click="openBattle(item.gameId, item.roomId)">
+					<img src="../images/home_7.png">
+					<div class="info">
+						<div class="roomName" v-text="item.name">
+							NG加拿大2.8
+						</div>
+						<div v-text="item.remark">
+							一下之间: 大,单：5
+						</div>
+					</div>
+				</div>
+				<div class="desc">
+					赔率说明
+				</div>
+			</div>
+			<div class="footerTips">
+				加拿大28，根据开奖结果,游戏时间9：00-3：55，每五分钟一期
+			</div>
 
-</div>
-<script src="../js/mui.js"></script>
-<script type="text/javascript">
-    mui.init()
-    document.querySelector('.roomItem').addEventListener('tap', function () {
-        mui.openWindow({
-            url: 'battle.html'
-        })
-    })
-</script>
-</body>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/utils.js"></script>
+		<script type="text/javascript">
+//			mui.plusReady(function() {
+//				const webview =  plus.webview.currentWebview();
+				var app = new Vue({
+					el: '.roomList',
+					data: {
+						roomObj: [],
+						desc: '',
+					},
+					mounted: function() {
+						httpRequest({
+							url: 'api/room?gameId=1'
+						}).then(res => {
+							this.roomObj = res.data;
+							
+						})
+					},
+					methods:{
+						openBattle: function(gameId, roomId) {
+							mui.openWindow({
+								url: 'battle.html',
+								extras: {
+									roomId,
+									gameId
+								}
+							})
+						}
+					}
+				})
+//			})
+//			document.querySelector('.roomItem').addEventListener('tap', function() {
+//				mui.openWindow({
+//					url: 'battle.html'
+//				})
+//			})
+		</script>
+	</body>
 
 </html>

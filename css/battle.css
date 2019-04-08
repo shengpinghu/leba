@@ -1,10 +1,11 @@
 .header_top {
-	margin: 0 15px;
-	border-radius: 0 0 10px 10px;
+    margin: 0 15px;
+    border-radius: 0 0 10px 10px;
     box-shadow: 0 1px 8px 1px #F85B2C;
-	overflow: hidden;
-	height: 96px;
+    overflow: hidden;
+    height: 96px;
 }
+
 .battleInfo {
     padding: 15px 15px 0;
     box-sizing: border-box;
@@ -65,9 +66,10 @@
     border-radius: 50%;
     background: #F39132;
 }
+
 .userCode {
-	color: #2F80ED;
-	padding: 5px;
+    color: #2F80ED;
+    padding: 5px;
 }
 
 .resultSum {
@@ -75,9 +77,9 @@
 }
 
 .footer {
-	background: #FAFAFA;
-	border-top: 1px solid #C0C0C0;
-	padding: 10px;
+    background: #FAFAFA;
+    border-top: 1px solid #C0C0C0;
+    padding: 10px;
     position: fixed;
     bottom: 0;
     display: flex;
@@ -96,8 +98,8 @@
 }
 
 ::-webkit-input-placeholder {
-	font-size: 12px;
-	color: #B2B2B2;
+    font-size: 12px;
+    color: #B2B2B2;
 }
 
 #picture {
@@ -287,13 +289,15 @@
 }
 
 .notify {
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-direction: column;
     background: #8f8f94;
     color: #f7f7f7;
     border-radius: 10px;
     width: 80%;
-    margin: auto;
+    margin: 14px auto;
     font-size: 12px;
 }
 
@@ -386,6 +390,7 @@
     height: 40px;
     z-index: 77;
 }
+
 .rightMenuItem {
     display: flex;
     flex-direction: column;
@@ -403,6 +408,7 @@
     display: flex;
     flex-direction: column;
 }
+
 #rightPopoverMenu img {
     width: 35px;
     height: 35px;
@@ -411,25 +417,26 @@
 }
 
 .betting {
-	background-color: #FB3A44;
-	margin-right: 10px;
-	border: 1px solid #FB3A44;
+    background-color: #FB3A44;
+    margin-right: 10px;
+    border: 1px solid #FB3A44;
 }
+
 .zhudan {
-	background-color: #F39132;
-	margin-right: 10px;
-	color: #FFFFFF;
+    background-color: #F39132;
+    margin-right: 10px;
+    color: #FFFFFF;
 }
 
 .submit {
-	background-color: #FB3A44;
-	margin-right: 10px;
-	border: 1px solid #FB3A44;
-	border-radius: 15px;
+    background-color: #FB3A44;
+    margin-right: 10px;
+    border: 1px solid #FB3A44;
+    border-radius: 15px;
 }
 
-.setHeader{
-	display: flex;
+.setHeader {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     color: #FFFFFF;
@@ -437,18 +444,27 @@
 }
 
 .setHeader > .setting {
-	height: 22px;
-	width: 22px;
+    height: 22px;
+    width: 22px;
 }
 
 .headerInfo {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
 }
 
 .fontSmall {
-	color: #FFFFFF;
-	font-size: 12px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+.message {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.message > .info {
+    margin-left: 18px;
 }

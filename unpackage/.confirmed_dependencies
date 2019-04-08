@@ -79,7 +79,8 @@
 			"fonts/mui.ttf",
 			"images/jndffc.png",
 			"images/battle/battle_1.png",
-			"images/home_7.png"
+			"images/home_7.png",
+			"js/vue.js"
 		],
 		"refer": [
 			"pages/battle.html"
@@ -213,10 +214,15 @@
 			"images/login/� 65.png",
 			"index.html",
 			"images/login/back.png",
-			"pages/register.html"
+			"pages/register.html",
+			"js/utils.js",
+			"js//vue.js",
+			"js/md5.js",
+			"pages/room.html"
 		],
 		"refer": [
-			"index.html"
+			"index.html",
+			"pages/room.html"
 		]
 	},
 	"pages/personal.html": {

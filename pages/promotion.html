@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .contain {
+            background: #1E9FFF;
+            padding: 200px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            font-size: 18px;
+        }
+        .content {
+            width: 100%;
+            background: #ffffff;
+            border-radius: 50px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 1000px;
+        }
+        .copy {
+            width:150px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            color: #1E9FFF;
+            border-radius: 10px;
+            border: 1px solid #1E9FFF;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <div class="content">
+            <div class="headTop">
+                我的UID是：67888，诚邀你加入最好玩的彩票平台
+            </div>
+            <div id="qrcode"></div>
+            <div>http://www.baidu.com/join/627288</div>
+            <div class="copy">复制链接</div>
+        </div>
+    </div>
+
+</body>
+<script src="../js/mui.min.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/qrcode.min.js"></script>
+<script>
+    const qrcodeUrl = "http://www.baidu.com"
+    new QRCode(document.getElementById("qrcode"),
+        {
+            text: qrcodeUrl,
+            width: 408,
+            height: 408,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    $(".copy").on("click", function () {
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        input.setAttribute('value', qrcodeUrl);
+        input.select();
+        if (document.execCommand) {
+            document.execCommand('copy');
+            mui.toast('复制成功');
+        }
+        document.body.removeChild(input);
+    })
+</script>
+</html>

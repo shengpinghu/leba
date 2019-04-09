@@ -55,6 +55,8 @@
 		<script src="../js/mui.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="../js/utils.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/layer/layer.js"></script>
 		<script type="text/javascript">
 			var app = new Vue({
 						el: '.register-content',
@@ -67,13 +69,16 @@
 								mobile: ''
 							},
 							passwordConfirm: ''
-							
+
 						},
 						methods: {
 							register: function() {
 								if(this.user.password !== this.passwordConfirm) {
-									mui.toast('两次密码不一致！')
+									return mui.toast('两次密码不一致！')
 								}
+								const layerIndex = layer.load(1, {
+									shade: [0.6, '#000000'] //0.1透明度的白色背景
+								});
 								if(this.user.inviteUser.trim() != '') {
 									this.user.inviteUser = Number(this.user.inviteUser);
 								}else{
@@ -84,6 +89,7 @@
 									type: 'POST',
 									data:this.user
 								}).then(res => {
+									layer.close(layerIndex);
 									location.replace("login.html");
 								}).catch(err => {
 									mui.toast(err.msg || '注册失败请重试~！');

@@ -178,8 +178,16 @@
 						this.messageList = res.data
 						layer.open({
 							title: res.data[0].title,
-							content: res.data[0].content,
-						})
+							type: 1
+							,content: `<div style="padding: 20px 80px;">${res.data[0].content}</div>`
+							,btn: '我已知晓'
+							,btnAlign: 'c' //按钮居中
+							,shade: 0.4 //不显示遮罩
+							,yes: function(){
+								layer.closeAll();
+							}
+						});
+						// mui.alert(res.data[0].content, res.data[0].title);
 					}).catch(err => {
 						mui.toast(err.msg || '登陆错误');
 					})

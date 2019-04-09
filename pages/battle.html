@@ -8,6 +8,11 @@
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <link href="../css/mui.css" rel="stylesheet"/>
     <link href="../css/battle.css" rel="stylesheet"/>
+    <style>
+        html, body, #contain {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,7 +41,7 @@
                 <div class="money" v-text="MyAccount"></div>
             </div>
         </div>
-        <div class="result" @click="toggle">
+        <div class="result" @click="getOrderHistoryList">
             <span>第</span>
             <span class="number" v-text="roomInfo.gameSeq">28899</span>
             <span>期</span>
@@ -48,25 +53,33 @@
             <span>=</span>
             <span class="resultNum resultSum" v-text="sumResult"></span>
             <span v-text="judgement">(大双)</span>
-            <table class="mui-table mui-table-view historyPos" v-if="historyShow">
-                <tr class="mui-table-view-cell historyItem">
-                    <th>期号</th>
-                    <th>开奖时间</th>
-                    <th>开奖结果</th>
-                </tr>
-                <tr class="mui-table-view-cell historyItem" v-for="item in historyResultList"
-                    style="white-space: nowrap;">
-                    <td v-text="item.code"></td>
-                    <td v-text="item.time"></td>
-                    <td v-html="item.result">
-
-                    </td>
-                </tr>
-            </table>
         </div>
     </div>
+    <table class="mui-table mui-table-view historyPos" v-if="historyShow">
+        <tr class="mui-table-view-cell historyItem">
+            <th>期号</th>
+            <th>开奖时间</th>
+            <th>开奖结果</th>
+        </tr>
+        <tr class="mui-table-view-cell historyItem" v-for="(item, index) in historyResultList" v-if="index< 8"
+            style="white-space: nowrap;">
+            <td v-text="item.seq"></td>
+            <td v-text="orderTimeFormatter(item)"></td>
+            <td>
+                <div class="result"><span class="resultNum">1</span>
+                    <span>+</span>
+                    <span class="resultNum">6</span>
+                    <span>+</span>
+                    <span class="resultNum">9</span>
+                    <span>=</span>
+                    <span class="resultNum resultSum">16</span>
+                    <span>(大双)</span>
+                </div>
+            </td>
+        </tr>
+    </table>
     <div class="purchaseInfo">
-        <div class="ImChat" v-for="item in webSoketList">
+        <div class="ImChat" v-if="webSoketList.length" v-for="item in webSoketList">
             <div v-if="item.msgType == 1" class="notify" v-text="item.userName + '加入房间'"></div>
             <div v-if="item.msgType == 3" class="personInfo" @click="showDialog(item)">
                 <img class="avatar" src="../images/battle/battle_2.png" alt="">
@@ -74,7 +87,7 @@
                     <div class="nickName" v-text="item.userName"></div>
                     <div class="betInfo">
                         <div class="betTile">
-                            <div>第<span class="money" v-text="0"></span>期</div>
+                            <div>第<span class="money" v-text="item.gameSeq"></span>期</div>
                             <span>合计：{{moneyActive * hasChooseItem.length}}</span></div>
                         <div class="betMoney" v-for="k in item.ruleList"><span v-text="k.ruleKey">小</span><span
                                 v-text="k.score"></span></div>
@@ -83,59 +96,64 @@
 
                 </div>
             </div>
-            <div class="notify" v-if="item.msgType == 2">
+            <div class="notify" v-if="item.msgType == 0">
                 <div>封盘以官方【南宫湖畔】为准</div>
                 <div>账户随时变动，请注意自己的账户</div>
                 <div>一旦有财产损失,概不负责</div>
             </div>
 
+            <div class="msgResult" v-if="item.msgType == 4">
+                <div style="background: #1E9FFF;line-height: 35px;color: #fff">
+                    第{{roomInfo.gameSeq}}期开奖结果
+                </div>
+                <div style="text-align: center;padding: 15px">
+                    <span class="resultNum" v-text="kjCodes[0]">1</span>
+                    <span>+</span>
+                    <span class="resultNum" v-text="kjCodes[1]">6</span>
+                    <span>+</span>
+                    <span class="resultNum" v-text="kjCodes[2]"></span>
+                    <span>=</span>
+                    <span class="resultNum resultSum" v-text="sumResult"></span>
+                    <span v-text="judgement"></span>
+                </div>
+            </div>
+
             <div class="personInfo message" v-if="item.msgType == 2">
                 <img class="avatar" src="../images/battle/battle_2.png" alt="">
-                <div class="info">双单500</div>
+                <div class="info" v-text="item.message"></div>
             </div>
-        </div>
 
-        <div class="personInfo" v-if="item.msgType == 4">
-            <img class="avatar" src="../images/battle/battle_2.png" alt="">
-            <div class="accountInfo">
-                <div class="nickName">机器人</div>
-                <div class="betInfo">
-                    <div class="betTile">第21299期投注账单</div>
-                    <ul class="mui-table-view noBorder">
-                        <li class="mui-table-view-cell mui-collapse">
-                            <a class="mui-navigate-right" href="#">南宫(100)</a>
-                            <div class="mui-collapse-content">
-                                <div class="betMoney"><span>小</span><span>100</span></div>
-                            </div>
-                        </li>
-                        <li class="mui-table-view-cell mui-collapse">
-                            <a class="mui-navigate-right" href="#">南宫(100)</a>
-                            <div class="mui-collapse-content">
-                                <div class="betMoney"><span>小</span><span>100</span></div>
-                            </div>
-                        </li>
-                        <li class="mui-table-view-cell mui-collapse">
-                            <a class="mui-navigate-right" href="#">南宫(100)</a>
-                            <div class="mui-collapse-content">
-                                <div class="betMoney"><span>小</span><span>100</span></div>
-                            </div>
-                        </li>
-                    </ul>
+            <div class="personInfo" v-if="item.msgType == 5">
+                <img class="avatar" src="../images/battle/battle_2.png" alt="">
+                <div class="accountInfo">
+                    <div class="nickName">机器人</div>
+                    <div class="betInfo">
+                        <div class="betTile">第{{item.gameSeq}}期投注账单</div>
+                        <ul class="mui-table-view noBorder">
+                            <li class="mui-table-view-cell mui-collapse" v-for="account in item.ruleList">
+                                <a class="mui-navigate-right" href="#">{{account.userName}}({{account.userId}})</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
     <div class="footer" v-show="bottomChange">
-        <a class="mui-btn mui-btn-primary betting" @click="show">投注</a>
+        <button class="mui-btn mui-btn-primary betting" @click="show" :disabled="disalbeBet">投注</button>
         <!--<button type="button" class="zhudan">注单</button>-->
-        <input type="text" name="" id="" v-model="message" placeholder="在这里输入聊天内容"/>
-        <button type="button" class="mui-btn mui-btn-primary submit" @click="submitMessage">发送</button>
+        <input type="text" :disabled="disalbeBet" id="" v-model="message"
+               :placeholder="disalbeBet ? '封盘中不允许操作' : '在这里输入聊天内容'"/>
+        <button type="button" class="mui-btn mui-btn-primary submit" @click="submitMessage" :disabled="disalbeBet">发送
+        </button>
     </div>
-    <div class="footer" v-show="!bottomChange">
-        <input type="text" v-model="moneyActive" placeholder="在这里输入聊天内容"/>
-        <a class="mui-btn mui-btn-primary betting" @click="Bet">投注</a>
+    <div class="footer" v-show="!bottomChange" :disabled="disalbeBet">
+        <input type="text" v-model="moneyActive" :disabled="disalbeBet"
+               :placeholder="disalbeBet ? '封盘中不允许操作' : '在这里输入聊天内容'"/>
+        <button class="mui-btn mui-btn-primary betting" @click="Bet" :disabled="disalbeBet">投注</button>
         <!--<button type="button" class="zhudan">加入注单</button>-->
-        <button type="button" class="mui-btn mui-btn-primary" @click="show">取消</button>
+        <button type="button" class="mui-btn mui-btn-primary" @click="show" :disabled="disalbeBet">取消</button>
     </div>
     <div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
         <div class="panelTitle" v-text="panelTitle">
@@ -147,7 +165,7 @@
                      @click="getActiveItem(index, item)">
                 </div>
             </div>
-            <div style="width: 100%;">
+            <div style="width: 100%;max-height: 400px;overflow: auto">
                 <div class="panelRight">
                     <div class="panelItem" :class="item.hasChoose ? 'panelItemActive':''"
                          v-for="(item, index) in itemList" @click="chooseList(item)"><span v-text="item.key"
@@ -161,7 +179,7 @@
                  v-text='item' @click="getMoneyActive(item)"></div>
         </div>
     </div>
-    <div id="followMe" class="mui-popover">
+    <!--<div id="followMe" class="mui-popover">
         <div class="followTile">跟投注单 2010099期</div>
         <div class="containFollow">
             <table class="mui-table mui-table-view followMePos">
@@ -191,7 +209,7 @@
             <a class="cancel" href="#followMe">取消</a>
             <a class="confirm" href="#followMe">确认</a>
         </div>
-    </div>
+    </div>-->
     <div id="rightPopoverMenu" v-if="rightMenuShow">
         <img src="../images/battle/battle_3.png" alt="">
         <img src="../images/battle/battle_9.png" alt="">
@@ -212,7 +230,7 @@
 <script src="../js/utils.js"></script>
 <script src="https://unpkg.com/dayjs"></script>
 <script type="text/javascript">
-    const resultStatus = '开奖中';
+    const resultStatus = '开奖封盘中';
     const layerIndex = layer.load(1, {
         shade: [0.6, '#000000'] //0.1透明度的白色背景
     });
@@ -223,62 +241,7 @@
             webSoketList: [],
             itemList: [],
             roomObj: {},
-            historyResultList: [{
-                code: 2322,
-                time: '03-08 19:00',
-                result: `<div class="result"><span class="resultNum">1</span>
-				<span>+</span>
-				<span class="resultNum">6</span>
-				<span>+</span>
-				<span class="resultNum">9</span>
-				<span>=</span>
-				<span class="resultNum resultSum">16</span>
-				<span>(大双)</span></div>`
-            }, {
-                code: 2322,
-                time: '03-08 19:00',
-                result: `<div class="result"><span class="resultNum">1</span>
-				<span>+</span>
-				<span class="resultNum">6</span>
-				<span>+</span>
-				<span class="resultNum">9</span>
-				<span>=</span>
-				<span class="resultNum resultSum">16</span>
-				<span>(大双)</span></div>`
-            }, {
-                code: 2322,
-                time: '03-08 19:00',
-                result: `<div class="result"><span class="resultNum">1</span>
-				<span>+</span>
-				<span class="resultNum">6</span>
-				<span>+</span>
-				<span class="resultNum">9</span>
-				<span>=</span>
-				<span class="resultNum resultSum">16</span>
-				<span>(大双)</span></div>`
-            }, {
-                code: 2322,
-                time: '03-08 19:00',
-                result: `<div class="result"><span class="resultNum">1</span>
-				<span>+</span>
-				<span class="resultNum">6</span>
-				<span>+</span>
-				<span class="resultNum">9</span>
-				<span>=</span>
-				<span class="resultNum resultSum">16</span>
-				<span>(大双)</span></div>`
-            }, {
-                code: 2322,
-                time: '03-08 19:00',
-                result: `<div class="result"><span class="resultNum">1</span>
-				<span>+</span>
-				<span class="resultNum">6</span>
-				<span>+</span>
-				<span class="resultNum">9</span>
-				<span>=</span>
-				<span class="resultNum resultSum">16</span>
-				<span>(大双)</span></div>`
-            }],
+            historyResultList: [],
             followMeList: [{
                 a: '大双',
                 b: '4/2.5',
@@ -302,6 +265,7 @@
             socket: {},
             message: '',
             followMeInfo: {},
+            disalbeBet: false
         },
         mounted() {
             const _this = this;
@@ -317,7 +281,7 @@
             getUserAccount().then(res => {
                 this.MyAccount = res.score
             })
-            this.socket = new WebSocket("ws://23.83.233.91:7666/room");
+            this.socket = new WebSocket("ws://124.156.167.24:7666/room");
             const socket = this.socket;
             //打开事件
             console.log(getUserInfo());
@@ -338,21 +302,30 @@
                 if (data.msgType == 3) {
                     return;
                 }
-                if (data.msgType == 1) {
+                if (data.msgType == 1 || data.msgType == 4) {
                     const nextTime = data.gameResult.nextTime;
                     _this.deadeLineFormatter(nextTime);
                     _this.kjCodes = data.gameResult.kjCodes.split(',');
                     Object.assign(_this.roomInfo, data);
                     layer.close(layerIndex);
                 }
+                if (data.msgType == 4) {
+                    _this.disalbeBet = false;
+                }
             };
             //关闭事件
             socket.onclose = function () {
-                alert("Socket已关闭");
+                layer.alert('失去连接，请重新进入~！', {title: '提示'}, function (index) {
+                    mui.back();
+                    layer.close(index);
+                });
             };
             //发生了错误事件
             socket.onerror = function () {
-                alert("发生了错误");
+                layer.alert('失去连接，请重新进入~！', {title: '提示'}, function (index) {
+                    mui.back();
+                    layer.close(index);
+                });
             }
         },
         computed: {
@@ -382,8 +355,20 @@
         },
         methods: {
             showDialog(item) {
-                mui("#followMe").popover('show');
+                const _this = this;
+                layer.confirm('是否跟注？', {
+                    title: '提示',
+                    btn: ['确认', '取消'] //可以无限个按钮
+                }, function (index, layero) {
+                    //按钮【按钮一】的回调
+                    _this.followMeRequest(item);
+                    layer.closeAll();
+                }, function (index) {
+                    layer.closeAll();
+                    //按钮【按钮二】的回调
+                });
                 this.followMeInfo = item;
+                console.log(item);
             },
             submitMessage() {
                 this.socket.send(JSON.stringify({
@@ -395,20 +380,23 @@
             },
             deadeLineFormatter(nextTime) {
                 const now = dayjs().valueOf();
-                const forMatter = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09']
+                const forMatter = ['01', '02', '03', '04', '05', '06', '07', '08', '09']
                 let diff = dayjs(nextTime).diff(dayjs(now), 'second');
                 console.log(diff);
                 let t = setInterval(() => {
                     if (diff <= 0) {
-                        this.deadeLine = resultStatus
+                        this.disalbeBet = true;
+                        this.webSoketList.push({msgType: 0})
+                        this.deadeLine = resultStatus;
+                        mui("#picture").popover('hide');
+                        this.bottomChange = true;
                         return clearInterval(t);
-                    }
-                    if (diff < 60) {
-                        this.deadeLine = '00 : ' + diff--;
+                    } else if (diff < 60) {
+                        this.deadeLine = '00 : ' + (forMatter[diff--] || diff--);
                     } else {
                         const m = parseInt(diff / 60);
                         const s = diff % 60;
-                        this.deadeLine = forMatter[m] || m + ' : ' + (forMatter[s] || s);
+                        this.deadeLine = (forMatter[m] || m) + ' : ' + (forMatter[s] || s);
                         diff--;
                     }
                 }, 1000)
@@ -424,8 +412,13 @@
             chooseList(item) {
                 this.$set(item, 'hasChoose', !item.hasChoose);
             },
-            toggle() {
+            getOrderHistoryList() {
                 this.historyShow = !this.historyShow
+                httpRequest({
+                    url: 'api/order'
+                }).then(res => {
+                    this.historyResultList = res.data;
+                })
             },
             show() {
                 // this.xiazhushow = true
@@ -457,12 +450,39 @@
                     },
                     type: 'POST'
                 }).then(res => {
+                    mui("#picture").popover('hide');
+                    this.bottomChange = true;
                     return getUserAccount()
                 }).then(res => {
                     this.MyAccount = res.score
                 }).catch(err => {
                     console.log(err);
                 })
+            },
+            followMeRequest(item) {
+                const list = item.ruleList;
+                const seq = item.gameSeq;
+                for (var i = 0; i < list.length; i++) {
+                    list[i].key = list[i].ruleKey;
+                }
+                httpRequest({
+                    url: 'api/order',
+                    data: {
+                        userId: item.userId,
+                        gameId: 1,
+                        roomId: 1,
+                        seq,
+                        orderRuleList: list
+                    },
+                    type: 'POST'
+                }).then(res => {
+                    layer.msg('跟注成功！');
+                }).catch(err => {
+                    console.log(err);
+                })
+            },
+            orderTimeFormatter(item) {
+                return dayjs(item.orderTime).format('MM-DD')
             }
         }
     })

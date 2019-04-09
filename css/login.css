@@ -1,19 +1,12 @@
-html,body{
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
 .login-content{
 	background-color: #E74A45;
-	height: 100%;
 }
 
 .login-head{
 	padding-top: 10px;
 	display: flex;
 	justify-content: space-around;
-	
+
 }
 
 .login-head>.btn{
@@ -32,7 +25,7 @@ html,body{
 	margin: 90px 15px 0;
 	padding: 50px 20px 20px;
 	position: relative;
-	
+
 }
 .login-txt-img{
 	position: absolute;

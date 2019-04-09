@@ -91,7 +91,7 @@ var setUserInfo = function(obj) {
 	dataUtil().local.setItemObj('userInfo', obj)
 }
 
-const baseUrl = 'http://23.83.233.91:8321/';
+const baseUrl = 'http://124.156.167.24:8321/';
 // const baseUrl = '/apis/';
 var httpRequest = function(option) {
 	const data = getUserInfo();

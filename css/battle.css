@@ -224,7 +224,8 @@
 }
 
 .purchaseInfo {
-    height: calc(100% - 150px);
+    margin-top: 10px;
+    height: calc(100% - 160px);
     overflow: auto;
 }
 
@@ -477,4 +478,5 @@
 }
 .message > .info {
     margin-left: 18px;
+    margin-right: 18px;
 }

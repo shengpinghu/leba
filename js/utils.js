@@ -105,13 +105,17 @@ var httpRequest = function(option) {
 				"token": data && data.token || ''
 			},
 			success: function(res) {
+				console.log(123123);
 				if (res.status === 0) {
 					resolve(res)
-				} else {
+				} else if (res.status ===1) {
+					location.replace('../pages/login.html');
+				}else {
 					reject(res)
 				}
 			},
 			error: function(err) {
+				console.log(123123);
 				reject(err)
 			}
 		})

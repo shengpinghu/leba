@@ -77,7 +77,7 @@
 									return mui.toast('两次密码不一致！')
 								}
 								const layerIndex = layer.load(1, {
-									shade: [0.6, '#000000'] //0.1透明度的白色背景
+									shade: [1, '#ffffff'] //0.1透明度的白色背景
 								});
 								if(this.user.inviteUser.trim() != '') {
 									this.user.inviteUser = Number(this.user.inviteUser);
@@ -90,7 +90,10 @@
 									data:this.user
 								}).then(res => {
 									layer.close(layerIndex);
-									location.replace("login.html");
+									layer.alert('注册成功，返回登录~！',{title: '提示'}, function(index) {
+										layer.close(index);
+										location.replace("login.html");
+									});
 								}).catch(err => {
 									mui.toast(err.msg || '注册失败请重试~！');
 								})

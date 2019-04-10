@@ -8,11 +8,6 @@
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <link href="../css/mui.css" rel="stylesheet"/>
     <link href="../css/room.css" rel="stylesheet"/>
-    <style>
-        html,body,.roomList {
-            height: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -44,15 +39,14 @@
     <div class="footerTips">
         加拿大28，根据开奖结果,游戏时间9：00-3：55，每五分钟一期
     </div>
-    <div id="odds" style="padding: 20px 30px;display: none;max-height: 200px;">
+    <div id="odds" style="padding: 20px 30px;display: none;">
         <div v-for="item in ruleList">
-            <div v-for="l in item.list">
+            <div v-for="l in item.list" style="font-size: 14px">
                 <span>买{{l.key}},</span>
-                <span>赔率为{{l.proportion}}(含本金)</span>
+                <span>赔率为{{l.proportion}}(不含本金)</span>
             </div>
         </div>
     </div>
-
 </div>
 <script src="../js/mui.js"></script>
 <script src="../js/vue.js"></script>
@@ -76,6 +70,8 @@
                 console.log(res);
                 this.roomData = res.data;
 
+            }).catch(err => {
+                layer.msg(err.msg);
             })
         },
         methods: {
@@ -91,6 +87,7 @@
             showRule(item) {
                 this.ruleList = item.ruleList;
                 layer.open({
+                    area:['250px', '500px'],
                     title: '赔率说明',
                     type: 1,
                     content: $("#odds"),

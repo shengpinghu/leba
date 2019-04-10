@@ -39,7 +39,9 @@
 		<script src="../js//vue.js"></script>
 		<script src="../js/utils.js"></script>
 		<script src="../js/md5.js"></script>
-		
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/layer/layer.js"></script>
+
 		<script type="text/javascript">
 			var app = new Vue({
 				el: '.login-content',
@@ -49,6 +51,9 @@
 				},
 				methods: {
 					login: function() {
+						const layerIndex = layer.load(1, {
+							shade: [0, '#ffffff'] //0.1透明度的白色背景
+						});
 						httpRequest({
 							url: 'login',
 							type: 'POST',
@@ -58,6 +63,7 @@
 								mobile: ''
 							}
 						}).then(res => {
+							layer.close(layerIndex);
 							location.replace('home.html');
 							setUserInfo(res.data);
 						}).catch(err => {

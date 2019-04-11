@@ -66,7 +66,7 @@
             <td v-text="item.seq"></td>
             <td v-text="orderTimeFormatter(item)"></td>
             <td>
-                <div class="result"><span class="resultNum">{{item.kjCodes.split(',')[0]}}</span>
+                <div class="result" v-if="item.kjCodes"><span class="resultNum">{{item.kjCodes.split(',')[0]}}</span>
                     <span>+</span>
                     <span class="resultNum">{{item.kjCodes.split(',')[1]}}</span>
                     <span>+</span>
@@ -131,7 +131,7 @@
                         <div class="betTile">第{{item.gameSeq}}期投注账单</div>
                         <ul class="mui-table-view noBorder">
                             <li class="mui-table-view-cell mui-collapse" v-for="account in item.ruleList">
-                                <a class="mui-navigate-right" href="#">{{account.userName}}({{account.userId}})</a>
+                                {{account.userName}}({{account.userId}})({{account.ruleKey}} : {{account.score}})
                             </li>
                         </ul>
                     </div>
@@ -271,7 +271,7 @@
         mounted() {
             const _this = this;
             getUserAccount().then(res => {
-                this.MyAccount = res;
+                Object.assign(this.MyAccount, res);
                 layer.close(layerIndex);
             })
             this.socket = new WebSocket("ws://124.156.167.24:7666/room");
@@ -303,7 +303,7 @@
                 if (data.msgType == 4) {
                     _this.disalbeBet = false;
                     getUserAccount().then(res => {
-                        this.MyAccount = res;
+                        Object.assign(_this.MyAccount, res);
                     })
                 };
                 setTimeout(() => {
@@ -371,6 +371,9 @@
                 return str + ')';
             },
             showDialog(item) {
+                if(this.disalbeBet) {
+                    return;
+                }
                 const _this = this;
                 layer.confirm('是否跟注？', {
                     title: '提示',
@@ -450,6 +453,7 @@
                     url: 'api/room?gameId=1'
                 }).then(res => {
                     this.roomObj = res.data[0];
+                    console.log(this.roomObj);
                     this.itemList = this.roomObj.ruleList[0].list;
                     mui("#picture").popover('show');
                     this.bottomChange = false;
@@ -466,6 +470,7 @@
                 this.rightMenuShow = !this.rightMenuShow
             },
             Bet() {
+                this.hasChooseItem = [];
                 const seq = this.roomInfo.gameResult.nextSeq
                 const ruleList = this.roomObj.ruleList;
                 for (var i = 0; i < ruleList.length; i++) {
@@ -494,7 +499,7 @@
                     this.bottomChange = true;
                     return getUserAccount()
                 }).then(res => {
-                    this.MyAccount = res
+                    Object.assign(this.MyAccount, res);
                 }).catch(err => {
                     layer.msg(err.msg);
                     console.log(err);

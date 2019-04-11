@@ -52,7 +52,7 @@
 				methods: {
 					login: function() {
 						const layerIndex = layer.load(1, {
-							shade: [0, '#ffffff'] //0.1透明度的白色背景
+							shade: [0.4, '#ffffff'] //0.1透明度的白色背景
 						});
 						httpRequest({
 							url: 'login',
@@ -67,6 +67,7 @@
 							location.replace('home.html');
 							setUserInfo(res.data);
 						}).catch(err => {
+							layer.close(layerIndex);
 							mui.toast(err.msg || '登陆错误');
 						})
 					}

@@ -65,9 +65,9 @@
         },
         mounted: function () {
             httpRequest({
-                url: 'api/room?gameId=1'
+                url: `api/room?gameId=${localStorage.gameId}`
             }).then(res => {
-                console.log(res);
+
                 this.roomData = res.data;
 
             }).catch(err => {
@@ -76,6 +76,9 @@
         },
         methods: {
             openBattle: function (gameId, roomId) {
+				localStorage.gameId = gameId;
+				localStorage.roomId = roomId;
+				
                 mui.openWindow({
                     url: 'battle.html',
                     extras: {

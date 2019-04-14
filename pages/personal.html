@@ -13,7 +13,7 @@
 
 		<div class="personal-content">
 			<div class="personal-head">
-				<div class="personal-name">NAME</div>
+				<div class="personal-name" v-text="user.name"></div>
 				<div class="personal-connect">
 
 					<div class="personal-phone">
@@ -21,11 +21,11 @@
 							<img  class="personal-img" src="../images/personal/personal_1.png" />
 						<div class="personal-phone-item">
 							<img src="../images/personal/personal_2.png" />
-							<div>12345678910</div>
+							<div v-text="user.mobile">12345678910</div>
 						</div>
 						<div class="personal-phone-item">
 							<img src="../images/personal/personal_3.png" />
-							<div>UID-61311</div>
+							<div v-text="user.id">UID-61311</div>
 						</div>
 					</div>
 				</div>
@@ -71,7 +71,30 @@
 		</div>
 
 		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/layer/layer.js"></script>
+		<script src="../js/utils.js"></script>
 		<script type="text/javascript">
+			var app = new Vue({
+					el: '.personal-content',
+					data: {
+						money: '',
+						user: {}
+					},
+					mounted() {
+						const layerIndex = layer.load(1, {
+							shade: [0.1, '#ffffff'] //0.1透明度的白色背景
+						});
+						getUserAccount().then(res => {
+							this.user = res
+							layer.close(layerIndex);
+						}).catch(err => {
+							layer.close(layerIndex);
+							mui.toast(err.msg || '获取用户信息失败！~');
+						})
+					}
+			})
 			mui.init()
 			mui('.personal-list').on('tap', '.personal-list-item', function(e) {
 				var targetTab = this.getAttribute('href');

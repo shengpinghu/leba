@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>Title</title>
+	<link href="../css/mui.css" rel="stylesheet" />
     <style>
         .contain {
-            background: #1E9FFF;
-            padding: 200px;
-            height: 100vh;
+			height: 100vh;
+            background: #F85B2C;
             display: flex;
             align-items: center;
             box-sizing: border-box;
             font-size: 18px;
+			padding-left: 30px;
+			padding-right: 30px;
         }
         .content {
+			padding: 25px;
             width: 100%;
             background: #ffffff;
             border-radius: 50px;
@@ -22,7 +26,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
-            height: 1000px;
+            height: 500px;
         }
         .copy {
             width:150px;
@@ -33,13 +37,31 @@
             border-radius: 10px;
             border: 1px solid #1E9FFF;
         }
+		.title {
+			flex: 1;
+			text-align: center;
+		}
+		.headTop {
+			color: #333333;
+			font-size: 14px;
+			text-align: center;
+		}
+		#uId {
+			color: #F85B2C;
+			font-size: 16px;
+		}
     </style>
 </head>
 <body>
-    <div class="contain">
+	<header class="mui-bar mui-bar-nav setHeader" style="flex-shrink: 0;">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <div class="title">推广链接</div>
+	</header>
+    <div class="mui-content contain">
         <div class="content">
             <div class="headTop">
-                我的UID是：67888，诚邀你加入最好玩的彩票平台
+                <div>我的UID是：<span id='uId'></span></div>
+				<div>诚邀你加入最好玩的彩票平台</div>
             </div>
             <div id="qrcode"></div>
             <div>http://www.baidu.com/join/627288</div>
@@ -51,13 +73,17 @@
 <script src="../js/mui.min.js"></script>
 <script src="../js/jquery.js"></script>
 <script src="../js/qrcode.min.js"></script>
+<script src="../js/utils.js"></script>
 <script>
+	getUserAccount().then(res => {
+		$("#uId").text(res.id);
+	})
     const qrcodeUrl = "http://www.baidu.com"
     new QRCode(document.getElementById("qrcode"),
         {
             text: qrcodeUrl,
-            width: 408,
-            height: 408,
+            width: 208,
+            height: 208,
             colorDark : "#000000",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H

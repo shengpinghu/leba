@@ -43,6 +43,9 @@
 		<script type="text/javascript" src="../js/layer/layer.js"></script>
 
 		<script type="text/javascript">
+			mui.plusReady(function() {
+				plus.navigator.setStatusBarBackground("#E74A45");
+			});
 			var app = new Vue({
 				el: '.login-content',
 				data: {
@@ -64,7 +67,7 @@
 							}
 						}).then(res => {
 							layer.close(layerIndex);
-							location.replace('home.html');
+							location.replace('../index.html');
 							setUserInfo(res.data);
 						}).catch(err => {
 							layer.close(layerIndex);
@@ -87,9 +90,6 @@
 					url: targetTab
 				})
 			})
-			mui.plusReady(function() {
-				plus.navigator.setStatusBarBackground("#E74A45");
-			});
 		</script>
 	</body>
 

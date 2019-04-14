@@ -16,17 +16,60 @@
 		<div class="title">提现下分</div>
 	</header>
 	<div class="mui-content">
-		<div class="add">+添加提现账户</div>
+		<a class="add" href="addAccount.html" v-text="user.bankAccountName ? '修改提现账户':'+添加提现账户'"></a>
 		<div class="input">
-			<input type="text" placeholder="请输入提现金额">
-			<span>全部提现</span>
+			<input type="number" v-model.number="money" placeholder="请输入提现金额">
+			<span @click="money = user.score">全部提现</span>
 		</div>
-		<div class="balance">账户余额0.00</div>
-		<div class="btn btn-gradient">确认提现</div>
+		<div class="balance">账户余额{{user.score || 0}}(元)</div>
+		<div class="btn btn-gradient" @click="withdraw">确认提现</div>
 	</div>
-		<script src="../js/mui.js"></script>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/vue.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/layer/layer.js"></script>
+		<script src="../js/utils.js"></script>
 		<script type="text/javascript">
-			mui.init()
+		mui.init();
+		var app = new Vue({
+				el: '.mui-content',
+				data: {
+					money: '',
+					user: {}
+				},
+				mounted() {
+					const layerIndex = layer.load(1, {
+						shade: [0.1, '#ffffff'] //0.1透明度的白色背景
+					});
+					getUserAccount().then(res => {
+						this.user = res
+						layer.close(layerIndex);
+					}).catch(err => {
+						layer.close(layerIndex);
+						mui.toast(err.msg || '获取用户信息失败！~');
+					})
+				},
+				methods:{
+					changeType(txt) {
+						this.account.bankAccountType = txt
+					},
+					withdraw() {
+						const layerIndex = layer.load(1, {
+							shade: [0.1, '#ffffff'] //0.1透明度的白色背景
+						});
+						httpRequest({
+							url: `api/withdraw?score=${this.money}`
+						}).then(res => {
+							layer.close(layerIndex);
+							this.user.score = Number(this.user.score) - Number(this.money);
+							layer.msg('提交成功,等待审核！~');
+						}).catch(err => {
+							layer.close(layerIndex);
+							mui.toast(err.msg || '登陆错误');
+						})
+					}
+				}
+		})
 		</script>
 	</body>
 

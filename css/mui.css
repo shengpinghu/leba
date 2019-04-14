@@ -6,6 +6,13 @@
 .mui-bar-nav {
     background: #F85B2C !important;
 }
+.setHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #FFFFFF;
+    font-size: 18px;
+	}
 .mui-bar-nav  a {
     color: #FFFFFF !important;
 }

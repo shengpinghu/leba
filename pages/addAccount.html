@@ -24,36 +24,59 @@
 				xx娱乐保证您的资金和隐身安全
 			</div>
 			<div class="tab">
-				<div class="type" :class="activeTab == 0 ? 'activeTab': ''" @click="changeType(0)">
+				<div class="type" :class="account.bankAccountType == '支付宝' ? 'activeTab': ''" @click="changeType('支付宝')">
 					支付宝提现
 				</div>
-				<div class="type" :class="activeTab == 1 ? 'activeTab': 'type'" @click="changeType(1)">
+				<div class="type" :class="account.bankAccountType == '银行卡' ? 'activeTab': 'type'" @click="changeType('银行卡')">
 					银行卡提现
 				</div>
 			</div>
 
 			<div class="input">
 				<img src="../images/account/account_2.png" />
-				<input type="text" placeholder="请输入收款人姓名（绑定后不可更改）">
+				<input type="text" v-model="account.bankAccountName" placeholder="请输入收款人姓名（绑定后不可更改）">
 			</div>
 			<div class="input">
 				<img src="../images/account/account_3.png" />
-				<input type="text" placeholder="请输入提现账号">
+				<input type="text" v-model="account.bankAccount" placeholder="请输入提现账号">
 			</div>
-			<div class="btn-gradient">确认提现</div>
+			<div class="btn-gradient" @click="bindAccount">确认添加</div>
 		</div>
 		<script src="../js/mui.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="../js/vue.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/layer/layer.js"></script>
+		<script src="../js/utils.js"></script>
 		<script type="text/javascript">
 		mui.init();
 		var app = new Vue({
 				el: '.addAccountMain',
 				data: {
-					activeTab: 0
+					account: {
+						bankAccountType:'支付宝',
+						bankAccount: '',
+						bankAccountName: ''
+					}
 				},
 				methods:{
-					changeType(index) {
-						this.activeTab = index
+					changeType(txt) {
+						this.account.bankAccountType = txt
+					},
+					bindAccount() {
+						const layerIndex = layer.load(1, {
+							shade: [0.4, '#ffffff'] //0.1透明度的白色背景
+						});
+						httpRequest({
+							url: 'api/user/bank-account/edit',
+							type: 'POST',
+							data: this.account
+						}).then(res => {
+							layer.close(layerIndex);
+							layer.msg('添加成功,去提现吧！~');
+						}).catch(err => {
+							layer.close(layerIndex);
+							mui.toast(err.msg || '登陆错误');
+						})
 					}
 				}
 		})

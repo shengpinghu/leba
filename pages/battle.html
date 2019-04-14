@@ -274,7 +274,7 @@
                 Object.assign(this.MyAccount, res);
                 layer.close(layerIndex);
             })
-            this.socket = new WebSocket("ws://124.156.167.24:7666/room");
+            this.socket = new WebSocket("ws://23.83.233.91:7666/room");
             const socket = this.socket;
             //打开事件
             console.log(getUserInfo());
@@ -283,7 +283,7 @@
                 socket.send(JSON.stringify({
                     token: getUserInfo().token,
                     msgType: 1,
-                    roomId: 1
+                    roomId: Number(localStorage.roomId)
                 }));
                 //socket.send("这是来自客户端的消息" + location.href + new Date());
             };
@@ -393,7 +393,7 @@
                 this.socket.send(JSON.stringify({
                     token: getUserInfo().token,
                     msgType: 2,
-                    roomId: 1,
+                    roomId: localStorage.roomId,
                     message: this.message
                 }));
             },
@@ -441,7 +441,7 @@
                 this.historyShow = !this.historyShow
                 if (!this.historyShow) return;
                 httpRequest({
-                    url: 'api/order'
+                    url: 'api/game-record/recent'
                 }).then(res => {
                     this.historyResultList = res.data;
                 })
@@ -450,7 +450,7 @@
                 // this.xiazhushow = true
 
                 httpRequest({
-                    url: 'api/room?gameId=1'
+                    url: `api/room?gameId=${localStorage.gameId}`
                 }).then(res => {
                     this.roomObj = res.data[0];
                     console.log(this.roomObj);
@@ -488,8 +488,8 @@
                     url: 'api/order',
                     data: {
                         userId: 10,
-                        gameId: 1,
-                        roomId: 1,
+                        gameId: Number(localStorage.gameId),
+                        roomId: Number(localStorage.roomId),
                         seq,
                         orderRuleList: this.hasChooseItem
                     },
@@ -515,8 +515,8 @@
                     url: 'api/order',
                     data: {
                         userId: item.userId,
-                        gameId: 1,
-                        roomId: 1,
+                        gameId: Number(localStorage.gameId),
+                        roomId: Number(localStorage.roomId),
                         seq,
                         orderRuleList: list
                     },

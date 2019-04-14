@@ -194,11 +194,9 @@
 				},
 				methods: {
 					openRoom: function(gameId) {
+						localStorage.gameId = Number(gameId);
 						mui.openWindow({
-							url: 'room.html',
-							extras: {
-								gameId
-							}
+							url: 'room.html'
 						})
 					}
 				}
